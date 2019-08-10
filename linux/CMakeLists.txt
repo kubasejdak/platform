@@ -1,3 +1,6 @@
+
+set(OSAL_PLATFORM linux)
+
 add_executable(${APP}.elf main.cpp)
 
 target_link_libraries(${APP}.elf
