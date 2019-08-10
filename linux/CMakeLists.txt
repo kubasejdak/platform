@@ -1,5 +1,5 @@
 
-set(OSAL_PLATFORM linux)
+set(OSAL_PLATFORM linux PARENT_SCOPE)
 
 add_executable(${APP}.elf main.cpp)
 
