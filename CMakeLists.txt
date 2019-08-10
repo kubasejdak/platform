@@ -5,3 +5,6 @@ if (NOT DEFINED PLATFORM)
 endif ()
 
 add_subdirectory(${PLATFORM})
+
+# Make OSAL_PLATFORM visible in the application root directory.
+set(OSAL_PLATFORM ${OSAL_PLATFORM} PARENT_SCOPE)
