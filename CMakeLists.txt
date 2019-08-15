@@ -13,7 +13,7 @@ endif ()
 # Setup platform toolchain file.
 include(app/${PLATFORM}/toolchain.cmake)
 
-project(osal VERSION 0.1 LANGUAGES C CXX)
+project(platform VERSION 0.1 LANGUAGES C CXX)
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)

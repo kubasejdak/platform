@@ -30,11 +30,13 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
+#include <cstdio>
+
 // NOLINTNEXTLINE
 int appMain(int argc, char* argv[])
 {
-    (void) argc;
-    (void) argv;
+    for (int i = 0; i < argc; ++i)
+        std::printf("argv[%d] = '%s'\n", i, argv[i]); // NOLINT
 
     return 0;
 }
