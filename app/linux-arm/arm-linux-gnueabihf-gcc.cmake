@@ -2,9 +2,9 @@ set(CMAKE_SYSTEM_NAME       Linux)
 set(CMAKE_SYSTEM_PROCESSOR  ARM)
 
 if (WIN32)
-    set(EXE_EXTENSION ".exe")
+    set(EXE_EXTENSION       ".exe")
 else ()
-    set(EXE_EXTENSION "")
+    set(EXE_EXTENSION       "")
 endif ()
 
 # Without that flag CMake is not able to pass test compilation check
