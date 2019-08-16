@@ -30,7 +30,11 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
+
 #include <array>
+#include <cstdlib>
 
 // NOLINTNEXTLINE
 extern int appMain(int argc, char* argv[]);
@@ -39,5 +43,9 @@ int main()
 {
     // NOLINTNEXTLINE
     std::array<char*, 1> appArgv = {const_cast<char*>("AppMain")};
-    return appMain(1, appArgv.data());
+
+    appMain(appArgv.size(), appArgv.data());
+
+    vTaskStartScheduler();
+    return EXIT_SUCCESS;
 }

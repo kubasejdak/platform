@@ -5,3 +5,6 @@ elseif (UNIX)
     set(LINUX_ARM_TOOLCHAIN_PATH        "/usr")
     set(BAREMETAL_ARM_TOOLCHAIN_PATH    "/usr")
 endif ()
+
+set(FREERTOS_VERSION        freertos-10.2.1)
+set(FREERTOS_PORTABLE       ARM_CM4F)
