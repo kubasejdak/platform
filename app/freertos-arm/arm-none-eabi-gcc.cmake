@@ -19,6 +19,9 @@ set(CMAKE_RANLIB            ${BAREMETAL_ARM_TOOLCHAIN_PATH}/bin/arm-none-eabi-ra
 set(CMAKE_SIZE_UTIL         ${BAREMETAL_ARM_TOOLCHAIN_PATH}/bin/arm-none-eabi-size${EXE_EXTENSION} CACHE INTERNAL "")
 set(CMAKE_STRIP             ${BAREMETAL_ARM_TOOLCHAIN_PATH}/bin/arm-none-eabi-strip${EXE_EXTENSION} CACHE INTERNAL "")
 
+set(CMAKE_C_FLAGS           "${CMAKE_C_FLAGS} -mcpu=cortex-m4 -mfloat-abi=hard --specs=nosys.specs")
+set(CMAKE_CXX_FLAGS         "${CMAKE_C_FLAGS}")
+
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)

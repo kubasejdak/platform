@@ -11,3 +11,10 @@ set_target_properties(${APP}.elf PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
+
+add_custom_target(${APP}.bin)
+get_target_property(OUTPUT_OUTPUT ${APP}.elf RUNTIME_OUTPUT_DIRECTORY)
+add_custom_command(TARGET ${APP}.bin
+    COMMAND ${CMAKE_OBJCOPY} -O binary ${OUTPUT_OUTPUT}/${APP}.elf ${OUTPUT_OUTPUT}/${APP}.bin
+)
+add_dependencies(${APP}.bin ${APP}.elf)
