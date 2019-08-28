@@ -2,13 +2,16 @@ cmake_minimum_required(VERSION 3.14)
 
 include(cmake/doxygen.cmake)
 
-# Define application name and settings.
-set(APP platform-tests)
-include(test/${APP}.cmake)
-
 if (NOT DEFINED PLATFORM)
     message(FATAL_ERROR "'PLATFORM' is not defined!")
 endif ()
+
+# Define application name and settings.
+if (NOT DEFINED APP)
+    message(STATUS "'APP' is not defined! Using platform default.")
+    set(APP ${PLATFORM}-demo)
+endif ()
+include(demo/${APP}/${APP}.cmake)
 
 # Setup platform toolchain file.
 include(app/${PLATFORM}/toolchain.cmake)
@@ -22,7 +25,7 @@ endif ()
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(app)
-add_subdirectory(test)
+add_subdirectory(demo)
 
 # Generate documentation.
 doxygen_addTarget(${CMAKE_CURRENT_SOURCE_DIR})
