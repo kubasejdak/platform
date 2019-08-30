@@ -31,6 +31,7 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
 #include <cstdio>
+#include <cstdlib>
 
 // NOLINTNEXTLINE
 int appMain(int argc, char* argv[])
@@ -38,5 +39,5 @@ int appMain(int argc, char* argv[])
     for (int i = 0; i < argc; ++i)
         std::printf("argv[%d] = '%s'\n", i, argv[i]); // NOLINT
 
-    return 0;
+    return EXIT_SUCCESS;
 }
