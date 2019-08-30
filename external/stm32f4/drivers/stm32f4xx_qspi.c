@@ -331,7 +331,7 @@ void QSPI_Cmd(FunctionalState NewState)
   *          This parameter can be any value between 0x00000000 and 0xFFFFFFFF.
   * @param  QSPI_Mask: Mask to be applied to the status bytes received in polling mode.. 
   *          This parameter can be any value between 0x00000000 and 0xFFFFFFFF.
-  * @param  QSPI_Match_Mode: indicates which method should be used for determining a “match” during
+  * @param  QSPI_Match_Mode: indicates which method should be used for determining a ï¿½matchï¿½ during
   *         automatic polling mode. 
   *          This parameter can be any value of :
   *            @arg QSPI_PMM_AND: AND match mode- SMF is set if all the unmasked bits received from the flash match
