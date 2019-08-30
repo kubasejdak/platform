@@ -7,11 +7,8 @@ if (NOT DEFINED PLATFORM)
 endif ()
 
 # Define application name and settings.
-if (NOT DEFINED APP)
-    message(STATUS "'APP' is not defined! Using platform default.")
-    set(APP ${PLATFORM}-demo)
-endif ()
-include(demo/${APP}/${APP}.cmake)
+set(APP platform-demo)
+include(demo/${APP}.cmake)
 
 # Setup platform toolchain file.
 include(app/${PLATFORM}/toolchain.cmake)

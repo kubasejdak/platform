@@ -30,14 +30,9 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
-#include <cstdio>
-#include <cstdlib>
+#include "platformInit.hpp"
 
-// NOLINTNEXTLINE
-int appMain(int argc, char* argv[])
+bool platformInit()
 {
-    for (int i = 0; i < argc; ++i)
-        std::printf("argv[%d] = '%s'\n", i, argv[i]); // NOLINT
-
-    return EXIT_SUCCESS;
+    return true;
 }
