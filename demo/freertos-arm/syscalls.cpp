@@ -30,50 +30,42 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
-#include "platformInit.hpp"
+#include "stm32f4xx_usart.h"
 
-#include <stm32f4xx_gpio.h>
-#include <stm32f4xx_rcc.h>
-#include <stm32f4xx_usart.h>
+#include <sys/types.h>
 
+#include <array>
 #include <cstdint>
-#include <cstdio>
 
-static void consoleInitGpio()
+extern "C" {
+
+// NOLINTNEXTLINE
+caddr_t _sbrk(intptr_t increment)
 {
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-    GPIO_PinAFConfig(GPIOC, GPIO_PinSource10, GPIO_AF_UART4); // NOLINT
+    constexpr int cBufferSize = 2 * 1024;
+    static std::array<char, cBufferSize> buffer;
+    static std::size_t offset = 0;
 
-    GPIO_InitTypeDef config{};
-    config.GPIO_Pin = GPIO_Pin_10;
-    config.GPIO_Mode = GPIO_Mode_AF;
-    config.GPIO_OType = GPIO_OType_PP;
-    config.GPIO_PuPd = GPIO_PuPd_UP;
-    config.GPIO_Speed = GPIO_Speed_100MHz;
-    GPIO_Init(GPIOC, &config); // NOLINT
+    std::size_t prevOffset = offset;
+
+    if (offset + increment > buffer.size())
+        return nullptr;
+
+    offset += increment;
+    return reinterpret_cast<caddr_t>(&buffer.at(prevOffset));
 }
 
-static void consoleInitUart()
+// NOLINTNEXTLINE
+int _write(int fd, const void* buf, size_t count)
 {
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART4, ENABLE);
+    (void) fd;
 
-    USART_InitTypeDef config{};
-    constexpr std::uint32_t cConsoleBaudrate = 115200;
-    config.USART_BaudRate = cConsoleBaudrate;
-    config.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-    config.USART_Mode = USART_Mode_Tx;
-    config.USART_Parity = USART_Parity_No;
-    config.USART_StopBits = USART_StopBits_1;
-    config.USART_WordLength = USART_WordLength_8b;
-    USART_Init(UART4, &config); // NOLINT
-    USART_Cmd(UART4, ENABLE);   // NOLINT
+    for (size_t i = 0; i < count; ++i) {
+        while (USART_GetFlagStatus(UART4, USART_FLAG_TC) == RESET) { // NOLINT
+        }
+        USART_SendData(UART4, (reinterpret_cast<const char*>(buf))[i]); // NOLINT
+    }
+
+    return count;
 }
-
-bool platformInit()
-{
-    consoleInitGpio();
-    consoleInitUart();
-    std::printf("\n"); // NOLINT
-
-    return true;
 }

@@ -2,6 +2,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/external/stm32f4 ${CMAKE_BINARY_DIR}/extern
 
 add_library(platform-init EXCLUDE_FROM_ALL
     platformInit.cpp
+    syscalls.cpp
 )
 
 target_include_directories(platform-init
@@ -9,7 +10,7 @@ target_include_directories(platform-init
 )
 
 target_link_libraries(platform-init
-    PUBLIC libstm32f4
+    PRIVATE libstm32f4
 )
 
 # This target is required by the freertos-arm platform.
