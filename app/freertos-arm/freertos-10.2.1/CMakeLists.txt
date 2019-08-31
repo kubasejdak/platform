@@ -12,12 +12,12 @@ add_library(freertos EXCLUDE_FROM_ALL
 add_subdirectory(portable)
 
 target_include_directories(freertos
-    PUBLIC include ${FREERTOS_CONFIG_PATH}
+    PUBLIC include
     PRIVATE include/freertos
 )
 
 target_link_libraries(freertos
-    PUBLIC freertos-portable
+    PUBLIC freertos-portable freertos-config
 )
 
 target_compile_options(freertos

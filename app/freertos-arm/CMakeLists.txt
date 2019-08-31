@@ -4,10 +4,6 @@ if (NOT DEFINED FREERTOS_VERSION)
     message(FATAL_ERROR "'FREERTOS_VERSION' is not defined!")
 endif ()
 
-if (NOT DEFINED FREERTOS_CONFIG_PATH)
-    message(FATAL_ERROR "'FREERTOS_CONFIG_PATH' is not defined!")
-endif ()
-
 add_subdirectory(${FREERTOS_VERSION})
 
 add_executable(${APP}.elf main.cpp)

@@ -7,5 +7,4 @@ elseif (UNIX)
 endif ()
 
 set(FREERTOS_VERSION                    freertos-10.2.1)
-set(FREERTOS_CONFIG_PATH                ${CMAKE_CURRENT_LIST_DIR}/freertos-arm)
 set(FREERTOS_PORTABLE                   ARM_CM4F)
