@@ -13,6 +13,10 @@ target_link_libraries(platform-init
     PRIVATE libstm32f4
 )
 
+target_link_options(platform-init
+    PUBLIC -T stm32f4discovery.ld
+)
+
 # This target is required by the freertos-arm platform.
 add_library(freertos-config INTERFACE)
 
