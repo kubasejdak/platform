@@ -39,10 +39,10 @@
 // NOLINTNEXTLINE
 extern int appMain(int argc, char* argv[]);
 
-#if configSUPPORT_STATIC_ALLOCATION == 1
+#if configSUPPORT_STATIC_ALLOCATION
 extern "C" void vApplicationGetIdleTaskMemory(StaticTask_t** ppxIdleTaskTCBBuffer,
-                                   StackType_t** ppxIdleTaskStackBuffer,
-                                   uint32_t* pulIdleTaskStackSize)
+                                              StackType_t** ppxIdleTaskStackBuffer,
+                                              uint32_t* pulIdleTaskStackSize)
 {
     /* If the buffers to be provided to the Idle task are declared inside this
     function then they must be declared static – otherwise they will be allocated on
@@ -62,12 +62,11 @@ extern "C" void vApplicationGetIdleTaskMemory(StaticTask_t** ppxIdleTaskTCBBuffe
     configMINIMAL_STACK_SIZE is specified in words, not bytes. */
     *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
 }
-#endif
 
-#if configSUPPORT_STATIC_ALLOCATION == 1 && configUSE_TIMERS == 1
+#if configUSE_TIMERS
 extern "C" void vApplicationGetTimerTaskMemory(StaticTask_t** ppxTimerTaskTCBBuffer,
-                                    StackType_t** ppxTimerTaskStackBuffer,
-                                    uint32_t* pulTimerTaskStackSize)
+                                               StackType_t** ppxTimerTaskStackBuffer,
+                                               uint32_t* pulTimerTaskStackSize)
 {
     /* If the buffers to be provided to the Timer task are declared inside this
     function then they must be declared static – otherwise they will be allocated on
@@ -88,13 +87,31 @@ extern "C" void vApplicationGetTimerTaskMemory(StaticTask_t** ppxTimerTaskTCBBuf
     *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
 }
 #endif
+#endif
 
-int main()
+static void mainThread(void* /*unused*/)
 {
     // NOLINTNEXTLINE
     std::array<char*, 1> appArgv = {const_cast<char*>("AppMain")};
-
     appMain(appArgv.size(), appArgv.data());
+}
+
+int main() // NOLINT(modernize-use-trailing-return-type)
+{
+    TaskHandle_t thread = nullptr;
+#if configSUPPORT_STATIC_ALLOCATION
+    StaticTask_t threadBuffer{};
+    std::array<StackType_t, configMINIMAL_STACK_SIZE> stack{};
+
+    thread = xTaskCreateStatic(mainThread, "appMain", configMINIMAL_STACK_SIZE, nullptr, tskIDLE_PRIORITY, stack.data(), &threadBuffer);
+    if (thread == nullptr)
+        return EXIT_FAILURE;
+
+#elif configSUPPORT_DYNAMIC_ALLOCATION
+    auto result = xTaskCreate(mainThread, "appMain", configMINIMAL_STACK_SIZE, nullptr, tskIDLE_PRIORITY, &thread);
+    if (result != pdPASS)
+        return EXIT_FAILURE;
+#endif
 
     vTaskStartScheduler();
     return EXIT_SUCCESS;

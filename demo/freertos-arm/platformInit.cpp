@@ -69,7 +69,7 @@ static void consoleInitUart()
     USART_Cmd(UART4, ENABLE);   // NOLINT
 }
 
-bool platformInit()
+bool platformInit() // NOLINT(modernize-use-trailing-return-type)
 {
     consoleInitGpio();
     consoleInitUart();

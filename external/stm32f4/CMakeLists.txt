@@ -11,7 +11,7 @@ target_compile_definitions(libstm32f4
 )
 
 target_include_directories(libstm32f4
-    PUBLIC CMSIS drivers
+    SYSTEM PUBLIC CMSIS drivers
 )
 
 target_compile_options(libstm32f4
