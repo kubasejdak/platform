@@ -5,5 +5,5 @@ add_library(appplatform-demo EXCLUDE_FROM_ALL
 )
 
 target_link_libraries(appplatform-demo
-    PRIVATE platform-init
+    PUBLIC platform-init
 )
