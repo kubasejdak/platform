@@ -1,6 +1,9 @@
 set(OSAL_PLATFORM none PARENT_SCOPE)
 
-add_executable(${APP}.elf main.cpp)
+add_executable(${APP}.elf
+    main.cpp
+    syscalls.cpp
+)
 
 target_link_libraries(${APP}.elf
     PRIVATE app${APP}

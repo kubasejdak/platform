@@ -30,12 +30,12 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
-#include "stm32f4xx_usart.h"
-
 #include <sys/types.h>
 
 #include <array>
-#include <csignal>
+#include <cstddef>
+
+extern int consolePrint(const char* message, std::size_t size);
 
 extern "C" {
 
@@ -58,13 +58,7 @@ caddr_t _sbrk(intptr_t increment)
 // NOLINTNEXTLINE
 int _write(int /*unused*/, const void* buf, size_t count)
 {
-    for (size_t i = 0; i < count; ++i) {
-        while (USART_GetFlagStatus(UART4, USART_FLAG_TC) == RESET) { // NOLINT
-        }
-        USART_SendData(UART4, (reinterpret_cast<const char*>(buf))[i]); // NOLINT
-    }
-
-    return count;
+    return consolePrint(reinterpret_cast<const char*>(buf), count);
 }
 
 } // extern "C"

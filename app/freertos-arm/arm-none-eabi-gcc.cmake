@@ -19,8 +19,8 @@ set(CMAKE_RANLIB                ${BAREMETAL_ARM_TOOLCHAIN_PATH}/bin/arm-none-eab
 set(CMAKE_SIZE_UTIL             ${BAREMETAL_ARM_TOOLCHAIN_PATH}/bin/arm-none-eabi-size${EXE_EXTENSION} CACHE INTERNAL "")
 set(CMAKE_STRIP                 ${BAREMETAL_ARM_TOOLCHAIN_PATH}/bin/arm-none-eabi-strip${EXE_EXTENSION} CACHE INTERNAL "")
 
-set(CMAKE_C_FLAGS               "-mthumb --specs=nosys.specs" CACHE INTERNAL "")
-set(CMAKE_CXX_FLAGS             "${CMAKE_C_FLAGS}" CACHE INTERNAL "")
+set(CMAKE_C_FLAGS               "-mthumb --specs=nosys.specs -fdata-sections -ffunction-sections -Wl,--gc-sections" CACHE INTERNAL "")
+set(CMAKE_CXX_FLAGS             "${CMAKE_C_FLAGS} -fno-exceptions" CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS_DEBUG         "-g -O0" CACHE INTERNAL "")
 set(CMAKE_C_FLAGS_RELEASE       "-O3" CACHE INTERNAL "")

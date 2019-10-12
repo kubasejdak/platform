@@ -6,7 +6,10 @@ endif ()
 
 add_subdirectory(${FREERTOS_VERSION})
 
-add_executable(${APP}.elf main.cpp)
+add_executable(${APP}.elf
+    main.cpp
+    syscalls.cpp
+)
 
 target_link_libraries(${APP}.elf
     PRIVATE app${APP} freertos
