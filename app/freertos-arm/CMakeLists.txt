@@ -22,5 +22,5 @@ add_custom_target(${APP}.bin)
 get_target_property(OUTPUT_OUTPUT ${APP}.elf RUNTIME_OUTPUT_DIRECTORY)
 add_custom_command(TARGET ${APP}.bin
     COMMAND ${CMAKE_OBJCOPY} -O binary ${OUTPUT_OUTPUT}/${APP}.elf ${OUTPUT_OUTPUT}/${APP}.bin
-    )
+)
 add_dependencies(${APP}.bin ${APP}.elf)
