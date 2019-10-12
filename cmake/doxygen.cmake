@@ -13,7 +13,7 @@ function(doxygen_addTarget INPUT)
     set(DOXYGEN_HTML_OUTPUT .)
     set(DOXYGEN_USE_MDFILE_AS_MAINPAGE README.md)
     set(DOXYGEN_FILE_PATTERNS *.c *.cc *.cxx *.cpp *.c++ *.ii *.ixx *.ipp *.i++ *.inl *.h *.hh *.hxx *.hpp *.h++ *.inc README.md)
-    set(DOXYGEN_EXCLUDE bin/ build/ cmake-build*/ external/ test/ tools/)
+    set(DOXYGEN_EXCLUDE cmake-build*/ external/ demo/)
     set(DOXYGEN_WARN_LOGFILE ${DOXYGEN_OUTPUT_DIRECTORY}/doxygen.warn)
 
     # Add target to generate doxygen docs in the build directory.
