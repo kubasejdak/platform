@@ -31,13 +31,13 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
 #include <array>
+#include <type_traits>
 
 // NOLINTNEXTLINE
 extern int appMain(int argc, char* argv[]);
 
 int main()
 {
-    // NOLINTNEXTLINE
-    std::array<char*, 1> appArgv = {const_cast<char*>("AppMain")};
+    std::array<char*, 1> appArgv = {std::remove_const_t<char*>("appMain")};
     return appMain(1, appArgv.data());
 }
