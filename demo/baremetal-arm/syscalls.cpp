@@ -43,8 +43,8 @@ extern "C" {
 // NOLINTNEXTLINE
 caddr_t _sbrk(intptr_t increment)
 {
-    constexpr int cPrintfBufferSize = 2 * 1024;
-    static std::array<char, cPrintfBufferSize> buffer;
+    constexpr int cBufferSize = 2 * 1024;
+    static std::array<char, cBufferSize> buffer;
     static std::size_t offset = 0;
 
     std::size_t prevOffset = offset;
@@ -53,16 +53,16 @@ caddr_t _sbrk(intptr_t increment)
         return nullptr;
 
     offset += increment;
-    return reinterpret_cast<caddr_t>(&buffer[prevOffset]);
+    return reinterpret_cast<caddr_t>(&buffer.at(prevOffset));
 }
 
 // NOLINTNEXTLINE
-int _write(int, const void* buf, size_t count)
+int _write(int /*unused*/, const void* buf, size_t count)
 {
     for (size_t i = 0; i < count; ++i) {
         while (USART_GetFlagStatus(UART4, USART_FLAG_TC) == RESET) { // NOLINT
         }
-        USART_SendData(UART4, reinterpret_cast<char*>(&buf)[i]); // NOLINT
+        USART_SendData(UART4, (reinterpret_cast<const char*>(buf))[i]); // NOLINT
     }
 
     return count;
