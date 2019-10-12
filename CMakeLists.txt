@@ -13,7 +13,7 @@ include(demo/${APP}.cmake)
 # Setup platform toolchain file.
 include(app/${PLATFORM}/toolchain.cmake)
 
-project(platform VERSION 0.1 LANGUAGES C CXX)
+project(platform VERSION 1.0 LANGUAGES ASM C CXX)
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
