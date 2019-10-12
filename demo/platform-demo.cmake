@@ -1,6 +1,6 @@
 if (APPLE)
-    set(LINUX_ARM_TOOLCHAIN_PATH        "/Volumes/Build/arm-linux-gnueabihf")
-    set(BAREMETAL_ARM_TOOLCHAIN_PATH    "/usr/local")
+    set(LINUX_ARM_TOOLCHAIN_PATH        "/Volumes/Toolchains/arm-linux-gnueabihf")
+    set(BAREMETAL_ARM_TOOLCHAIN_PATH    "/Volumes/Toolchains/gcc-arm-none-eabi-8-2019-q3-update")
 elseif (UNIX)
     set(LINUX_ARM_TOOLCHAIN_PATH        "/usr")
     set(BAREMETAL_ARM_TOOLCHAIN_PATH    "/usr")
