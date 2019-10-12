@@ -10,7 +10,7 @@ target_include_directories(platform-init
 )
 
 target_link_libraries(platform-init
-    PRIVATE libstm32f4
+    PRIVATE stm32f4
 )
 
 target_link_options(platform-init

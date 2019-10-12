@@ -10,7 +10,7 @@ target_include_directories(platform-init
 )
 
 target_link_libraries(platform-init
-    PRIVATE libstm32f4
+    PRIVATE stm32f4
 )
 
 target_link_options(platform-init
@@ -25,5 +25,5 @@ target_include_directories(freertos-config
 )
 
 target_link_libraries(freertos-config
-    INTERFACE libstm32f4
+    INTERFACE stm32f4
 )
