@@ -17,8 +17,8 @@ target_link_options(platform-init
 )
 
 # Application specific compilation options.
-set(CMAKE_C_FLAGS       "${CMAKE_C_FLAGS} -march=armv7e-m -mcpu=cortex-m4" CACHE INTERNAL "")
-set(CMAKE_CXX_FLAGS     "${CMAKE_CXX_FLAGS} -march=armv7e-m -mcpu=cortex-m4" CACHE INTERNAL ""
+set(CMAKE_C_FLAGS       "${CMAKE_C_FLAGS} -march=armv7e-m -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16" CACHE INTERNAL "")
+set(CMAKE_CXX_FLAGS     "${CMAKE_CXX_FLAGS} -march=armv7e-m -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16" CACHE INTERNAL "")
 
 # This target is required by the freertos-arm platform.
 add_library(freertos-config INTERFACE)

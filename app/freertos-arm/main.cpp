@@ -91,11 +91,11 @@ extern "C" void vApplicationGetTimerTaskMemory(StaticTask_t** ppxTimerTaskTCBBuf
 #    endif
 #endif
 
-constexpr std::string_view cMainThreadName = "appMain";
+constexpr const char* cMainThreadName = "appMain";
 
 static void mainThread(void* /*unused*/)
 {
-    std::array<char*, 1> appArgv = {std::remove_const_t<char*>(cMainThreadName.data())};
+    std::array<char*, 1> appArgv = {std::remove_const_t<char*>(cMainThreadName)};
     appMain(appArgv.size(), appArgv.data());
 }
 
@@ -106,19 +106,14 @@ int main()
     StaticTask_t threadBuffer{};
     std::array<StackType_t, configMINIMAL_STACK_SIZE> stack{};
 
-    thread = xTaskCreateStatic(mainThread,
-                               cMainThreadName.data(),
-                               configMINIMAL_STACK_SIZE,
-                               nullptr,
-                               tskIDLE_PRIORITY,
-                               stack.data(),
-                               &threadBuffer);
+    thread = xTaskCreateStatic(
+        mainThread, cMainThreadName, configMINIMAL_STACK_SIZE, nullptr, tskIDLE_PRIORITY, stack.data(), &threadBuffer);
     if (thread == nullptr)
         return EXIT_FAILURE;
 
 #elif configSUPPORT_DYNAMIC_ALLOCATION
     auto result
-        = xTaskCreate(mainThread, cMainThreadName.data(), configMINIMAL_STACK_SIZE, nullptr, tskIDLE_PRIORITY, &thread);
+        = xTaskCreate(mainThread, cMainThreadName, configMINIMAL_STACK_SIZE, nullptr, tskIDLE_PRIORITY, &thread);
     if (result != pdPASS)
         return EXIT_FAILURE;
 #endif
