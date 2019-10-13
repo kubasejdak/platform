@@ -38,6 +38,6 @@ extern int appMain(int argc, char* argv[]);
 
 int main()
 {
-    std::array<char*, 1> appArgv = {std::remove_const_t<char*>("appMain")};
-    return appMain(1, appArgv.data());
+    std::array<char*, 1> argv = {std::remove_const_t<char*>("appMain")};
+    return appMain(argv.size(), argv.data());
 }
