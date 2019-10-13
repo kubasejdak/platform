@@ -44,7 +44,7 @@ int consolePrint(const char* message, std::size_t size)
     for (std::size_t i = 0; i < size; ++i) {
         while (USART_GetFlagStatus(UART4, USART_FLAG_TC) == RESET) { // NOLINT
         }
-        USART_SendData(UART4, (reinterpret_cast<const char*>(message))[i]); // NOLINT
+        USART_SendData(UART4, message[i]); // NOLINT
     }
 
     return size;
