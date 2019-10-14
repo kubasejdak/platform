@@ -4,11 +4,18 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
     - uses: actions/checkout@v1
+      with:
+        submodules: true
     - name: Action test
       run: |
         echo "Some test string"
         ls -l
+        gcc -v
+        g++ -v
