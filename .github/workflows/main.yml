@@ -1,18 +1,22 @@
-name: CI
+name: Build Linux
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
+    name: ${{ matrix.python }}
     runs-on: ubuntu-latest
     container:
-      image: gcc:9.2.0
+      image: ${{ matrix.image }}
+    strategy:
+      matrix:
+        image: [gcc:9.2.0, gcc:8.3.0]
 
     steps:
     - uses: actions/checkout@v1
       with:
         submodules: true
-    - name: Action test
+    - name: Check GCC version.
       run: |
         echo "Some test string"
         ls -l
