@@ -10,15 +10,13 @@ jobs:
       image: ${{ matrix.image }}
     strategy:
       matrix:
-        image: ['gcc:9.2.0', 'gcc:8.3.0']
+        image: ['ksejdak/cmake:3.15.4']
 
     steps:
     - uses: actions/checkout@v1
       with:
         submodules: true
-    - name: Check GCC version.
+    - name: Check Cmake version.
       run: |
-        echo "Some test string"
         ls -l
-        gcc -v
-        g++ -v
+        cmake --version
