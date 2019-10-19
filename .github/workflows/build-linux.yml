@@ -10,13 +10,16 @@ jobs:
       image: ${{ matrix.image }}
     strategy:
       matrix:
-        image: ['ksejdak/cmake:3.15.4']
+        image: ['ksejdak/gcc:9', 'ksejdak/gcc:8', 'ksejdak/gcc:7']
 
     steps:
     - uses: actions/checkout@v1
       with:
         submodules: true
-    - name: Check Cmake version.
+    - name: Build platform-demo application
       run: |
-        ls -l
-        cmake --version
+        mkdir build
+        cd build
+
+        cmake .. -DPLATFORM=linux
+        make
