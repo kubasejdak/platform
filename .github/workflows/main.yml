@@ -10,7 +10,7 @@ jobs:
       image: ${{ matrix.image }}
     strategy:
       matrix:
-        image: [gcc:9.2.0, gcc:8.3.0]
+        image: [ gcc:9.2.0, gcc:8.3.0 ]
 
     steps:
     - uses: actions/checkout@v1
