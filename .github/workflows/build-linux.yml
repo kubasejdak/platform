@@ -10,7 +10,7 @@ jobs:
       image: ${{ matrix.image }}
     strategy:
       matrix:
-        image: ['ksejdak/gcc:9', 'ksejdak/gcc:8', 'ksejdak/gcc:7']
+        image: ['kubasejdak/gcc:9', 'kubasejdak/gcc:8', 'kubasejdak/gcc:7']
 
     steps:
     - uses: actions/checkout@v1
