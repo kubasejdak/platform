@@ -23,7 +23,7 @@ set(CMAKE_C_FLAGS               "-mthumb --specs=nosys.specs -fdata-sections -ff
 set(CMAKE_CXX_FLAGS             "${CMAKE_C_FLAGS} -fno-exceptions" CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS_DEBUG         "-g -O0" CACHE INTERNAL "")
-set(CMAKE_C_FLAGS_RELEASE       "-O3" CACHE INTERNAL "")
+set(CMAKE_C_FLAGS_RELEASE       "-Os" CACHE INTERNAL "")
 set(CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_C_FLAGS_DEBUG}" CACHE INTERNAL "")
 set(CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_C_FLAGS_RELEASE}" CACHE INTERNAL "")
 

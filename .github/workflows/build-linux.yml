@@ -4,13 +4,13 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: ${{ matrix.image }}
+    name: GCC ${{ matrix.image }}
     runs-on: ubuntu-latest
     container:
-      image: ${{ matrix.image }}
+      image: kubasejdak/gcc:${{ matrix.gcc }}
     strategy:
       matrix:
-        image: ['kubasejdak/gcc:9', 'kubasejdak/gcc:8', 'kubasejdak/gcc:7']
+        gcc: [9, 8, 7]
 
     steps:
     - uses: actions/checkout@v1
@@ -21,5 +21,5 @@ jobs:
         mkdir build
         cd build
 
-        cmake .. -DPLATFORM=linux
+        cmake .. -DPLATFORM=linux -DTOOLCHAIN=gcc-${{ matrix.gcc }}
         make
