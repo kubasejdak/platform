@@ -1,4 +1,4 @@
-name: Build Linux
+name: Build baremetal ARM
 
 on: [push, pull_request]
 
@@ -7,19 +7,19 @@ jobs:
     name: GCC ${{ matrix.gcc }}
     runs-on: ubuntu-latest
     container:
-      image: kubasejdak/gcc:${{ matrix.gcc }}
+      image: kubasejdak/arm-none-eabi-gcc:${{ matrix.gcc }}
     strategy:
       matrix:
-        gcc: [9, 8, 7]
+        gcc: [8]
 
     steps:
     - uses: actions/checkout@v1
       with:
         submodules: true
-    - name: Build platform-demo application for Linux
+    - name: Build platform-demo application for baremetal ARM
       run: |
         mkdir build
         cd build
 
-        cmake .. -DPLATFORM=linux -DTOOLCHAIN=gcc-${{ matrix.gcc }}
+        cmake .. -DPLATFORM=baremetal-arm -DTOOLCHAIN=arm-none-eabi-gcc-${{ matrix.gcc }}
         make
