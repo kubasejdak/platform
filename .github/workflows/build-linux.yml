@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: GCC ${{ matrix.image }}
+    name: GCC ${{ matrix.gcc }}
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/gcc:${{ matrix.gcc }}
