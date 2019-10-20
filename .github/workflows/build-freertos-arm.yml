@@ -4,13 +4,10 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: GCC ${{ matrix.gcc }}
+    name: GCC 8
     runs-on: ubuntu-latest
     container:
-      image: kubasejdak/arm-none-eabi-gcc:${{ matrix.gcc }}
-    strategy:
-      matrix:
-        gcc: [8]
+      image: kubasejdak/arm-none-eabi-gcc:8
 
     steps:
     - uses: actions/checkout@v1
@@ -21,5 +18,5 @@ jobs:
         mkdir build
         cd build
 
-        cmake .. -DPLATFORM=freertos-arm -DTOOLCHAIN=arm-none-eabi-gcc-${{ matrix.gcc }}
+        cmake .. -DPLATFORM=freertos-arm
         make
