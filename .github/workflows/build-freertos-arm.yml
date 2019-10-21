@@ -1,0 +1,22 @@
+name: Build FreeRTOS ARM
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: GCC 8
+    runs-on: ubuntu-latest
+    container:
+      image: kubasejdak/arm-none-eabi-gcc:8
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+    - name: Build platform-demo application for FreeRTOS ARM
+      run: |
+        mkdir build
+        cd build
+
+        cmake .. -DPLATFORM=freertos-arm
+        make

@@ -1,0 +1,25 @@
+name: Build Linux
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: GCC ${{ matrix.gcc }}
+    runs-on: ubuntu-latest
+    container:
+      image: kubasejdak/gcc:${{ matrix.gcc }}
+    strategy:
+      matrix:
+        gcc: [9, 8, 7]
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+    - name: Build platform-demo application for Linux
+      run: |
+        mkdir build
+        cd build
+
+        cmake .. -DPLATFORM=linux -DTOOLCHAIN=gcc-${{ matrix.gcc }}
+        make
