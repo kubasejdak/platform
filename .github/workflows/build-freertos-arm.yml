@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: GCC 8 ${{ matrix.mode }}
+    name: GCC ${{ matrix.mode }}
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/arm-none-eabi-gcc:8
@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: true
-    - name: Build platform-demo application for FreeRTOS ARM
+    - name: Build application
       run: |
         mkdir build
         cd build
