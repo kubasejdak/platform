@@ -4,12 +4,13 @@ on: [push, pull_request]
 
 jobs:
   build-gcc:
-    name: GCC ${{ matrix.mode }}
+    name: GCC ${{ matrix.gcc }} ${{ matrix.mode }}
     runs-on: ubuntu-latest
     container:
-      image: kubasejdak/arm-linux-gnueabihf-gcc:8
+      image: kubasejdak/arm-linux-gnueabihf-gcc:${{ matrix.gcc }}
     strategy:
       matrix:
+        gcc: [8]
         mode: [Debug, Release]
 
     steps:
@@ -28,10 +29,10 @@ jobs:
     name: Clang ${{ matrix.clang }} ${{ matrix.mode }}
     runs-on: ubuntu-latest
     container:
-      image: kubasejdak/clang:${{ matrix.clang }}
+      image: kubasejdak/arm-linux-gnueabihf-clang:${{ matrix.clang }}
     strategy:
       matrix:
-        clang: [8]
+        clang: [9]
         mode: [Debug, Release]
 
     steps:
