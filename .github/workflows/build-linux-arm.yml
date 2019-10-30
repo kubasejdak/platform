@@ -32,7 +32,7 @@ jobs:
       image: kubasejdak/arm-linux-gnueabihf-clang:${{ matrix.clang }}
     strategy:
       matrix:
-        clang: [9]
+        clang: [9, 8, 7]
         mode: [Debug, Release]
 
     steps:
