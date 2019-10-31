@@ -4,19 +4,20 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: GCC 8 ${{ matrix.mode }}
+    name: GCC ${{ matrix.gcc }} ${{ matrix.mode }}
     runs-on: ubuntu-latest
     container:
-      image: kubasejdak/arm-none-eabi-gcc:8
+      image: kubasejdak/arm-none-eabi-gcc:${{ matrix.gcc }}
     strategy:
       matrix:
+        gcc: [8]
         mode: [Debug, Release]
 
     steps:
     - uses: actions/checkout@v1
       with:
         submodules: true
-    - name: Build platform-demo application for baremetal ARM
+    - name: Build application
       run: |
         mkdir build
         cd build
