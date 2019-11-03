@@ -22,6 +22,8 @@ jobs:
         mkdir build
         cd build
 
+        whoami
+        pwd
         conan install .. --build fmt
         cmake .. -DPLATFORM=linux -DTOOLCHAIN=gcc-${{ matrix.gcc }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
