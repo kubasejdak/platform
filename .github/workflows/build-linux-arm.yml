@@ -22,7 +22,7 @@ jobs:
         mkdir build
         cd build
 
-        conan install .. --build fmt
+        conan install .. -pr /root/.conan/profiles/default --build fmt
         cmake .. -DPLATFORM=linux-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
 
@@ -45,6 +45,6 @@ jobs:
           mkdir build
           cd build
 
-          conan install .. --build fmt
+          conan install .. -pr /root/.conan/profiles/default --build fmt
           cmake .. -DPLATFORM=linux-arm -DTOOLCHAIN=arm-linux-gnueabihf-clang-${{ matrix.clang }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
           make

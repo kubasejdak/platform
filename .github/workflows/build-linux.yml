@@ -22,10 +22,7 @@ jobs:
         mkdir build
         cd build
 
-        whoami
-        pwd
-        cat /root/.conan/profiles/default
-        conan install .. --build fmt -pr /root/.conan/profiles/default
+        conan install .. -pr /root/.conan/profiles/default --build fmt
         cmake .. -DPLATFORM=linux -DTOOLCHAIN=gcc-${{ matrix.gcc }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
 
@@ -48,6 +45,6 @@ jobs:
           mkdir build
           cd build
 
-          conan install .. --build fmt
+          conan install .. -pr /root/.conan/profiles/default --build fmt
           cmake .. -DPLATFORM=linux -DTOOLCHAIN=clang-${{ matrix.clang }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
           make
