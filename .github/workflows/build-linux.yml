@@ -24,7 +24,8 @@ jobs:
 
         whoami
         pwd
-        conan install .. --build fmt
+        cat /root/.conan/profiles/default
+        conan install .. --build fmt -pr /root/.conan/profiles/default
         cmake .. -DPLATFORM=linux -DTOOLCHAIN=gcc-${{ matrix.gcc }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
 
