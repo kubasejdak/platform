@@ -22,10 +22,10 @@ endif ()
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add conan files.
-if (EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-    conan_basic_setup()
-endif ()
+#if (EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+#    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+#    conan_basic_setup()
+#endif ()
 
 # Configure external libraries.
 #find_package(fmt)
