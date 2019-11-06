@@ -32,7 +32,8 @@
 
 #include "platformInit.hpp"
 
-#include <cstdio>
+#include <fmt/printf.h>
+
 #include <cstdlib>
 
 // NOLINTNEXTLINE
@@ -42,7 +43,7 @@ int appMain(int argc, char* argv[])
         return EXIT_FAILURE;
 
     for (int i = 0; i < argc; ++i)
-        std::printf("argv[%d] = '%s'\n", i, argv[i]); // NOLINT
+        fmt::print("argv[{}] = '{}'\n", i, argv[i]);
 
     return EXIT_SUCCESS;
 }

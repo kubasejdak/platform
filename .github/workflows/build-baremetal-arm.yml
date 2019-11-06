@@ -10,7 +10,7 @@ jobs:
       image: kubasejdak/arm-none-eabi-gcc:${{ matrix.gcc }}
     strategy:
       matrix:
-        gcc: [8]
+        gcc: [9]
         mode: [Debug, Release]
 
     steps:
