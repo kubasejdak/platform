@@ -22,5 +22,6 @@ jobs:
         mkdir build
         cd build
 
+        conan install .. -pr /root/.conan/profiles/default --build fmt
         cmake .. -DPLATFORM=freertos-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
