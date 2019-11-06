@@ -17,13 +17,17 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: true
+
+    - name: Configure conan
+      run: |
+        cp /root/.conan/settings.yml `conan config home`
+        cp /root/.conan/profiles/default `conan config home`/profiles
+
     - name: Build application
       run: |
         mkdir build
         cd build
 
-        cp /root/.conan/settings.yml `conan config home`
-
-        conan install .. -pr /root/.conan/profiles/default --build fmt
+        conan install .. --build fmt
         cmake .. -DPLATFORM=freertos-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
