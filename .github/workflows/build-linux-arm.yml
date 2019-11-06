@@ -17,12 +17,19 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: true
+
+    - name: Configure conan
+      run: |
+        cp /root/.conan/settings.yml `conan config home`
+        mkdir -p `conan config home`/profiles
+        cp /root/.conan/profiles/default `conan config home`/profiles
+
     - name: Build application
       run: |
         mkdir build
         cd build
 
-        conan install .. -pr /root/.conan/profiles/default --build fmt
+        conan install .. --build fmt
         cmake .. -DPLATFORM=linux-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
 
@@ -40,11 +47,18 @@ jobs:
       - uses: actions/checkout@v1
         with:
           submodules: true
+
+      - name: Configure conan
+        run: |
+          cp /root/.conan/settings.yml `conan config home`
+          mkdir -p `conan config home`/profiles
+          cp /root/.conan/profiles/default `conan config home`/profiles
+
       - name: Build application
         run: |
           mkdir build
           cd build
 
-          conan install .. -pr /root/.conan/profiles/default --build fmt
+          conan install .. --build fmt
           cmake .. -DPLATFORM=linux-arm -DTOOLCHAIN=arm-linux-gnueabihf-clang-${{ matrix.clang }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
           make
