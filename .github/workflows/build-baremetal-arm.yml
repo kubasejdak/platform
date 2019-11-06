@@ -28,5 +28,6 @@ jobs:
         mkdir build
         cd build
 
+        conan install .. --build fmt
         cmake .. -DPLATFORM=baremetal-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
