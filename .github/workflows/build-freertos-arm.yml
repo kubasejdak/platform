@@ -21,6 +21,7 @@ jobs:
     - name: Configure conan
       run: |
         cp /root/.conan/settings.yml `conan config home`
+        mkdir -p `conan config home`/profiles
         cp /root/.conan/profiles/default `conan config home`/profiles
 
     - name: Build application
