@@ -28,7 +28,7 @@ jobs:
         mkdir build
         cd build
 
-        conan install .. --build fmt
+        conan install .. --build fmt -s build_type=${{ matrix.mode }}
         cmake .. -DPLATFORM=linux-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
 
@@ -57,6 +57,6 @@ jobs:
           mkdir build
           cd build
 
-          conan install .. --build fmt
+          conan install .. --build fmt -s build_type=${{ matrix.mode }}
           cmake .. -DPLATFORM=linux-arm -DTOOLCHAIN=arm-linux-gnueabihf-clang-${{ matrix.clang }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
           make
