@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.15)
 
 include(cmake/doxygen.cmake)
 
@@ -20,6 +20,12 @@ if (NOT CMAKE_BUILD_TYPE)
 endif ()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# Add conan files.
+if (EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup()
+endif ()
 
 # Project-wide compilation options.
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)

@@ -1,6 +1,6 @@
 name: Build Linux ARM
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build-gcc:
@@ -17,11 +17,18 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: true
+
+    - name: Configure conan
+      run: |
+        mkdir -p `conan config home`/profiles
+        cp /root/.conan/profiles/default `conan config home`/profiles
+
     - name: Build application
       run: |
         mkdir build
         cd build
 
+        conan install .. --build fmt -s build_type=${{ matrix.mode }}
         cmake .. -DPLATFORM=linux-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
 
@@ -39,10 +46,17 @@ jobs:
       - uses: actions/checkout@v1
         with:
           submodules: true
+
+      - name: Configure conan
+        run: |
+          mkdir -p `conan config home`/profiles
+          cp /root/.conan/profiles/default `conan config home`/profiles
+
       - name: Build application
         run: |
           mkdir build
           cd build
 
+          conan install .. --build fmt -s build_type=${{ matrix.mode }}
           cmake .. -DPLATFORM=linux-arm -DTOOLCHAIN=arm-linux-gnueabihf-clang-${{ matrix.clang }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
           make

@@ -1,6 +1,6 @@
 name: Build baremetal ARM
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
@@ -10,17 +10,25 @@ jobs:
       image: kubasejdak/arm-none-eabi-gcc:${{ matrix.gcc }}
     strategy:
       matrix:
-        gcc: [8]
+        gcc: [9]
         mode: [Debug, Release]
 
     steps:
     - uses: actions/checkout@v1
       with:
         submodules: true
+
+    - name: Configure conan
+      run: |
+        cp /root/.conan/settings.yml `conan config home`
+        mkdir -p `conan config home`/profiles
+        cp /root/.conan/profiles/default `conan config home`/profiles
+
     - name: Build application
       run: |
         mkdir build
         cd build
 
+        conan install .. --build fmt -s build_type=${{ matrix.mode }}
         cmake .. -DPLATFORM=baremetal-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make

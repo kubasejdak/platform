@@ -30,10 +30,14 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
+
 #include <sys/types.h>
 
 #include <array>
 #include <cstddef>
+#include <type_traits>
 
 extern int consolePrint(const char* message, std::size_t size);
 
@@ -59,6 +63,27 @@ caddr_t _sbrk(intptr_t increment)
 int _write(int /*unused*/, const void* buf, size_t count)
 {
     return consolePrint(reinterpret_cast<const char*>(buf), count);
+}
+
+size_t fwrite(const void *ptr, size_t /*unused*/, size_t nmemb, FILE * /*unused*/)
+{
+    return _write(0, std::remove_const_t<char*>(ptr), nmemb);
+}
+
+// NOLINTNEXTLINE
+int _gettimeofday(struct timeval* tp, void* /*unused*/)
+{
+    if (tp != nullptr)
+    {
+        constexpr std::uint32_t cUsInMs = 1000;
+        constexpr std::uint32_t cUsInSec = 1000000;
+        auto nowUs = static_cast<std::uint32_t>(xTaskGetTickCount()) * cUsInMs;
+        auto nowSec = nowUs / cUsInSec;
+        tp->tv_usec = nowUs - (nowSec * cUsInSec);
+        tp->tv_sec = nowSec;
+    }
+
+    return 0;
 }
 
 } // extern "C"
