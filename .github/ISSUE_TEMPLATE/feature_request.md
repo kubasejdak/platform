@@ -19,4 +19,4 @@ Present possible solutions, directions or even code samples that could be used a
 ### Attachments and other context
 Add any other context (e.g. logs, screenshots) that is relevant to this issue.
 
-1. List of the included files with description.
+1. List of the included files with their description.
