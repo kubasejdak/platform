@@ -1,6 +1,6 @@
 name: Build baremetal ARM
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
