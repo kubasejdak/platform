@@ -6,5 +6,5 @@ add_library(appplatform-demo EXCLUDE_FROM_ALL
 
 target_link_libraries(appplatform-demo
     PUBLIC platform-init
-    PRIVATE $<IF:$<CONFIG:Debug>,fmtd,fmt>
+    PRIVATE fmt::fmt
 )

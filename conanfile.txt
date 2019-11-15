@@ -2,4 +2,5 @@
 fmt/6.0.0@bincrafters/stable
 
 [generators]
-cmake
+cmake_find_package
+cmake_paths

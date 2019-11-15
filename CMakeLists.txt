@@ -22,9 +22,14 @@ endif ()
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add conan files.
-if (EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-    conan_basic_setup()
+if (EXISTS ${CMAKE_BINARY_DIR}/conan_paths.cmake)
+    include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
+endif ()
+
+# Find external libraries.
+find_package(fmt)
+if (NOT TARGET fmt::fmt)
+    message(FATAL_ERROR "fmt not found")
 endif ()
 
 # Project-wide compilation options.
