@@ -10,6 +10,7 @@ assignees: kubasejdak
 [Describe clearly what can be improved or added to the project.]
 
 ### Formal requirements (definition of done)
+
 - [ ] [List of requirements, that should be met in order to mark this issue as done.]
 
 ### Possible solutions/implementations to consider

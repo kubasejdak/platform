@@ -13,7 +13,8 @@ assignees: kubasejdak
 [Describe what should be the correct behavior in this situation.]
 
 ### Environment
-[Describe the environemnt (software & hardware) used when the bug happend.]
+[Describe the environment (software & hardware) used when the bug happend.]
+ 
  - OS: [e.g. Linux Raspbian Buster 2019-09-26]
  - Project version/commit: [e.g. 1.0.1 or b02a2d7604cbebaa969cb96dbf5ff62bb25ce9c8]
  - Compiler: [e.g. arm-linux-gnueabihf-gcc 8.3.1]
@@ -26,6 +27,7 @@ assignees: kubasejdak
 [e.g. It crashed 50% of times, 4/10 times, always, only once.]
 
 ### Steps to reproduce (if possible)
+
 1. [Go to '...'.]
 2. [Click on '...'.]
 3. [Scroll down to '...'.]
