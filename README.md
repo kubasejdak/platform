@@ -6,4 +6,4 @@
 [![Github Releases](https://img.shields.io/github/release/kubasejdak/platform.svg)](https://github.com/kubasejdak/platform/releases)
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 
-[![CodeFactor](https://www.codefactor.io/repository/github/c/platform/badge)](https://www.codefactor.io/repository/github/kubasejdak/platform)
+[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/kubasejdak/platform)](https://www.codefactor.io/repository/github/kubasejdak/platform)
