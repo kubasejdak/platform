@@ -1,6 +1,6 @@
 name: Build FreeRTOS ARM
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -29,6 +29,6 @@ jobs:
         mkdir build
         cd build
 
-        conan install .. --build fmt -s build_type=${{ matrix.mode }}
+        conan install .. --build missing -s build_type=${{ matrix.mode }}
         cmake .. -DPLATFORM=freertos-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
