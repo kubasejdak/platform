@@ -26,10 +26,10 @@ assignees: kubasejdak
 [e.g. It crashed 50% of times, 4/10 times, always, only once.]
 
 ### Steps to reproduce (if possible)
-1. Go to '...'.
-2. Click on '...'.
-3. Scroll down to '...'.
-4. See error.
+1. [Go to '...'.]
+2. [Click on '...'.]
+3. [Scroll down to '...'.]
+4. [See error.]
 
 ### Possible solutions/implementations to consider
 [Present possible solutions, directions or even code samples that could be used as inspiration for resolving this bug.]
@@ -37,4 +37,4 @@ assignees: kubasejdak
 ### Attachments and other context
 [Add any other context (e.g. logs, screenshots) that is relevant to this bug.]
 
-1. List of the included files with their description.
+1. [List of the included files with their description.]
