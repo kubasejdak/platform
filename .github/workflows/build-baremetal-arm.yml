@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: GCC ${{ matrix.gcc }} ${{ matrix.mode }}
+    name: baremetal arm-none-eabi-gcc-${{ matrix.gcc }} ${{ matrix.mode }}
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/arm-none-eabi-gcc:${{ matrix.gcc }}

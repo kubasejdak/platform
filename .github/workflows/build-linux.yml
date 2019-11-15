@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build-gcc:
-    name: GCC ${{ matrix.gcc }} ${{ matrix.mode }}
+    name: Linux gcc-${{ matrix.gcc }} ${{ matrix.mode }}
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/gcc:${{ matrix.gcc }}
@@ -33,7 +33,7 @@ jobs:
         make
 
   build-clang:
-    name: Clang ${{ matrix.clang }} ${{ matrix.mode }}
+    name: Linux clang-${{ matrix.clang }} ${{ matrix.mode }}
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/clang:${{ matrix.clang }}
