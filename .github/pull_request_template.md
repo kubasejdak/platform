@@ -4,4 +4,4 @@
 ### Related issues
 [Specify issues related to this pull request.]
 
-1. #[<issue_id>]
+* #[<issue_id>]
