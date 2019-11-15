@@ -4,11 +4,10 @@ about: Suggest an idea for this project
 title: ''
 labels: Feature
 assignees: kubasejdak
-
 ---
 
 ### Brief overview of the feature or problems, that it should address
-A clear and concise description of what can be improved or added to the project.
+Describe clearly what can be improved or added to the project.
 
 ### Formal requirements (definition of done)
 - [ ] List of requirements, that should be met in order to mark this issue as done.
