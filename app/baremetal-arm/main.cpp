@@ -33,9 +33,18 @@
 #include <array>
 #include <type_traits>
 
+/// Main application entry point.
+/// @param argc         Number of the commandline arguments.
+/// @param argv         Array of commandline arguments containing argc strings.
+/// @return Exit code of the application.
+/// @note This function should be provided/implemented by the application.
 // NOLINTNEXTLINE
 extern int appMain(int argc, char* argv[]);
 
+/// Main executable entry point.
+/// @return Exit code of the application.
+/// @note This function passes one hardcoded commandline argument to the application, to fulfill the requirement
+/// that argv[0] contains the name of the binary.
 int main()
 {
     std::array<char*, 1> argv = {std::remove_const_t<char*>("appMain")};

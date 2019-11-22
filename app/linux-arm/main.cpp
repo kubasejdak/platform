@@ -30,9 +30,19 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
+/// Main application entry point.
+/// @param argc         Number of the commandline arguments.
+/// @param argv         Array of commandline arguments containing argc strings.
+/// @return Exit code of the application.
+/// @note This function should be provided/implemented by the application.
 // NOLINTNEXTLINE
 extern int appMain(int argc, char* argv[]);
 
+/// Main executable entry point.
+/// @param argc         Number of the commandline arguments.
+/// @param argv         Array of commandline arguments containing argc strings.
+/// @return Exit code of the application.
+/// @note This function passes all commandline arguments of the binary to the application without any modification.
 int main(int argc, char* argv[])
 {
     return appMain(argc, argv);
