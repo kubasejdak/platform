@@ -17,6 +17,7 @@ jobs:
         mkdir build
         cd build
 
+        apt-get install git -y
         conan install .. --build missing
         cmake .. -DPLATFORM=linux
         make doxygen
