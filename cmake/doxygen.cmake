@@ -12,7 +12,6 @@ function(doxygen_addTarget)
         set(DOXYGEN_FILE_PATTERNS               *.c *.cc *.cxx *.cpp *.c++ *.ii *.ixx *.ipp *.i++ *.inl *.h *.hh *.hxx *.hpp *.h++ *.inc README.md)
         set(DOXYGEN_WARN_LOGFILE                ${DOXYGEN_OUTPUT_DIRECTORY}/doxygen.warn)
 
-        # Add target to generate doxygen docs in the build directory.
         doxygen_add_docs(doxygen ${ARGN} WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
     endif ()
 endfunction()

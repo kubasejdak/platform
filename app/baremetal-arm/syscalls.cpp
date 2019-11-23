@@ -38,7 +38,7 @@
 
 /// Implements the console capability by defining what should happen with messages intended for stdout.
 /// @param message      Message to be printed.
-/// @param size         Size of the message (including the NULL character).
+/// @param size         Size of the message.
 /// @return Number of processed bytes.
 /// @note This function is called by the _write() syscall.
 extern int consolePrint(const char* message, std::size_t size);
