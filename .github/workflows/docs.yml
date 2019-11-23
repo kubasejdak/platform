@@ -11,38 +11,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-      with:
-        path: platform_master
-        submodules: true
-
-    - uses: actions/checkout@v1
-      with:
-        branch: 'gh-pages'
-        path: platform_docs
-        submodules: true
 
     - name: Generate Doxygen documentation
       run: |
-        pwd
-        ls -l
         mkdir build
         cd build
 
-#        conan install .. --build missing
-#        cmake ../platform_master -DPLATFORM=linux
-#        make doxygen
+        conan install .. --build missing
+        cmake .. -DPLATFORM=linux
+        make doxygen
 
-    - name: Copy and commit files
-      run: |
-        pwd
-        ls -l
-#        git config --local user.email "kuba.sejdak@gmail.com"
-#        git config --local user.name "GitHub Action"
-#        git add .
-#        git commit -m "Update documentation"
-
-    - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: 'gh-pages'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN_GITHUB_PAGES }}
+        BASE_BRANCH: master
+        BRANCH: gh-pages
+        FOLDER: build/docs
