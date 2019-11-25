@@ -13,7 +13,7 @@ assignees: kubasejdak
 [Describe what should be the correct behavior in this situation.]
 
 ### Environment
-[Describe the environment (software & hardware) used when the bug happend.]
+[Describe the environment (software & hardware) used when the bug happened.]
  
  - OS: [e.g. Linux Raspbian Buster 2019-09-26]
  - Project version/commit: [e.g. 1.0.1 or b02a2d7604cbebaa969cb96dbf5ff62bb25ce9c8]
