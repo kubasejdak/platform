@@ -27,10 +27,7 @@ if (EXISTS ${CMAKE_BINARY_DIR}/conan_paths.cmake)
 endif ()
 
 # Find external libraries.
-find_package(fmt)
-if (NOT TARGET fmt::fmt)
-    message(FATAL_ERROR "fmt not found")
-endif ()
+find_package(fmt REQUIRED)
 
 # Project-wide compilation options.
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
@@ -39,4 +36,4 @@ add_subdirectory(app)
 add_subdirectory(demo)
 
 # Generate documentation.
-doxygen_addTarget(${CMAKE_CURRENT_SOURCE_DIR})
+doxygen_addTarget(${CMAKE_CURRENT_SOURCE_DIR}/lib README.md)

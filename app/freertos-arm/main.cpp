@@ -35,9 +35,13 @@
 
 #include <array>
 #include <cstdlib>
-#include <string_view>
 #include <type_traits>
 
+/// Main application entry point.
+/// @param argc         Number of the commandline arguments.
+/// @param argv         Array of commandline arguments containing argc strings.
+/// @return Exit code of the application.
+/// @note This function should be provided/implemented by the application.
 // NOLINTNEXTLINE
 extern int appMain(int argc, char* argv[]);
 
@@ -91,14 +95,23 @@ extern "C" void vApplicationGetTimerTaskMemory(StaticTask_t** ppxTimerTaskTCBBuf
 #    endif
 #endif
 
+/// Default name that is passed to the application as argv[0].
 constexpr const char* cMainThreadName = "appMain";
 
+/// Wrapper thread that will execute the main application code.
 static void mainThread(void* /*unused*/)
 {
     std::array<char*, 1> appArgv = {std::remove_const_t<char*>(cMainThreadName)};
     appMain(appArgv.size(), appArgv.data());
 }
 
+/// Main executable entry point.
+/// @return Exit code of the application.
+/// @note This function passes one hardcoded commandline argument to the application, to fulfill the requirement
+/// that argv[0] contains the name of the binary.
+/// @note Depending on the value of the configSUPPORT_STATIC_ALLOCATION and configSUPPORT_DYNAMIC_ALLOCATION
+/// macro definitions (which should be defined in the FreeRTOSConfig.h in the application code), this function creates
+/// the application thread using static or dynamic API of the FreeRTOS threading module.
 int main()
 {
     TaskHandle_t thread = nullptr;
