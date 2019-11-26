@@ -36,4 +36,4 @@ add_subdirectory(app)
 add_subdirectory(demo)
 
 # Generate documentation.
-doxygen_addTarget(${CMAKE_CURRENT_SOURCE_DIR}/lib README.md)
+doxygen_addTarget(${CMAKE_CURRENT_SOURCE_DIR}/app README.md)
