@@ -119,8 +119,13 @@ int main()
     StaticTask_t threadBuffer{};
     std::array<StackType_t, configMINIMAL_STACK_SIZE> stack{};
 
-    thread = xTaskCreateStatic(
-        mainThread, cMainThreadName, configMINIMAL_STACK_SIZE, nullptr, tskIDLE_PRIORITY, stack.data(), &threadBuffer);
+    thread = xTaskCreateStatic(mainThread,
+                               cMainThreadName,
+                               configMINIMAL_STACK_SIZE,
+                               nullptr,
+                               tskIDLE_PRIORITY,
+                               stack.data(),
+                               &threadBuffer);
     if (thread == nullptr)
         return EXIT_FAILURE;
 
