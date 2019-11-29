@@ -32,7 +32,6 @@
 
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
-
 #include <sys/types.h>
 
 #include <array>
@@ -70,7 +69,7 @@ int _write(int /*unused*/, const void* buf, size_t count)
     return consolePrint(reinterpret_cast<const char*>(buf), count);
 }
 
-size_t fwrite(const void *ptr, size_t /*unused*/, size_t nmemb, FILE * /*unused*/)
+size_t fwrite(const void* ptr, size_t /*unused*/, size_t nmemb, FILE* /*unused*/)
 {
     return _write(0, std::remove_const_t<char*>(ptr), nmemb);
 }
@@ -78,8 +77,7 @@ size_t fwrite(const void *ptr, size_t /*unused*/, size_t nmemb, FILE * /*unused*
 // NOLINTNEXTLINE
 int _gettimeofday(struct timeval* tp, void* /*unused*/)
 {
-    if (tp != nullptr)
-    {
+    if (tp != nullptr) {
         constexpr std::uint32_t cUsInMs = 1000;
         constexpr std::uint32_t cUsInSec = 1000000;
         auto nowUs = static_cast<std::uint32_t>(xTaskGetTickCount()) * cUsInMs;
