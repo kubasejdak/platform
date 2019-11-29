@@ -1,0 +1,27 @@
+name: Quality
+
+on: [push, pull_request]
+
+jobs:
+  clang-format:
+    name: clang-latest
+    runs-on: ubuntu-latest
+    container:
+      image: kubasejdak/clang:latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Run clang-format
+      run: |
+        tools/check-clang-format.sh app
+
+    - name: Check results
+      run: |
+        git update-index -q --refresh
+        git diff-index --quiet HEAD
+        if [ ${?} -ne 0 ]; then
+            echo "The following bad source code format was detected:"
+            git --no-pager diff
+            exit 1
+        fi
