@@ -4,17 +4,17 @@ on: [push, pull_request]
 
 jobs:
   clang-format:
-    name: clang-latest
+    name: clang-9
     runs-on: ubuntu-latest
     container:
-      image: kubasejdak/clang:latest
-
+      image: kubasejdak/clang:9
     steps:
     - uses: actions/checkout@v1
 
     - name: Run clang-format
       run: |
-        tools/check-clang-format.sh app
+        update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-9 30
+        tools/check-clang-format.sh app demo
 
     - name: Check results
       run: |
