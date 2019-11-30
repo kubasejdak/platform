@@ -4,7 +4,6 @@ on: [push, pull_request]
 
 jobs:
   clang-format:
-    name: clang-9
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/clang:9
@@ -27,13 +26,17 @@ jobs:
         fi
 
   clang-tidy:
-    name: clang-9
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/clang:9
     strategy:
       matrix:
-        platform: [linux, linux-arm, baremetal-arm, freertos-arm]
+        platform: [linux, linux-arm]
+        include:
+          - platform: linux
+            toolchain: clang-9
+          - platform: linux-arm
+            toolchain: arm-linux-gnueabihf-clang-9
 
     steps:
       - uses: actions/checkout@v1
@@ -44,7 +47,7 @@ jobs:
           cd build
 
           conan install .. --build missing
-          cmake .. -DPLATFORM=${{ matrix.platform }} -DTOOLCHAIN=clang-9
+          cmake .. -DPLATFORM=${{ matrix.platform }} -DTOOLCHAIN=${{ matrix.toolchain }}
 
       - name: Run clang-tidy
         run: |
