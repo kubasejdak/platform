@@ -3,8 +3,7 @@ name: Build Linux
 on: [push, pull_request]
 
 jobs:
-  build-gcc:
-    name: Linux gcc-${{ matrix.gcc }} ${{ matrix.mode }}
+  gcc:
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/gcc:${{ matrix.gcc }}
@@ -25,8 +24,7 @@ jobs:
         cmake .. -DPLATFORM=linux -DTOOLCHAIN=gcc-${{ matrix.gcc }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
 
-  build-clang:
-    name: Linux clang-${{ matrix.clang }} ${{ matrix.mode }}
+  clang:
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/clang:${{ matrix.clang }}
