@@ -8,12 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/clang:9
+
     steps:
     - uses: actions/checkout@v1
 
     - name: Run clang-format
       run: |
-        update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-9 30
         tools/check-clang-format.sh app demo
 
     - name: Check results
@@ -21,7 +21,41 @@ jobs:
         git update-index -q --refresh
         git diff-index --quiet HEAD
         if [ ${?} -ne 0 ]; then
-            echo "The following bad source code format was detected:"
+            echo "The following bad source code formatting was detected:"
             git --no-pager diff
             exit 1
         fi
+
+  clang-tidy:
+    name: clang-9
+    runs-on: ubuntu-latest
+    container:
+      image: kubasejdak/clang:9
+    strategy:
+      matrix:
+        platform: [linux, linux-arm, baremetal-arm, freertos-arm]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build application
+        run: |
+          mkdir build
+          cd build
+
+          conan install .. --build missing
+          cmake .. -DPLATFORM=${{ matrix.platform }} -DTOOLCHAIN=clang-9
+
+      - name: Run clang-tidy
+        run: |
+          cd build
+          ../tools/check-clang-tidy.sh
+
+      - name: Check results
+        run: |
+          cd build
+          if [ `wc -c < errors.yml` != "0 ]; then
+              echo "The following clang-tidy errors were detected:"
+              cat errors.yml
+              exit 1
+          fi
