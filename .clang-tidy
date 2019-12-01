@@ -1,5 +1,7 @@
 ---
-Checks:              '*'
+Checks:              '*,
+                      -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+                      -modernize-use-trailing-return-type'
 WarningsAsErrors:    '*'
 HeaderFilterRegex:   ''
 AnalyzeTemporaryDtors: false
