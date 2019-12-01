@@ -53,12 +53,3 @@ jobs:
         run: |
           cd build
           ../tools/check-clang-tidy.sh
-
-      - name: Check results
-        run: |
-          cd build
-          if [ `wc -c < errors.yml` != "0" ]; then
-              echo "The following clang-tidy errors were detected:"
-              cat errors.yml
-              exit 1
-          fi
