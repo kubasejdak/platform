@@ -3,8 +3,7 @@ name: Build FreeRTOS ARM
 on: [push, pull_request]
 
 jobs:
-  build:
-    name: FreeRTOS arm-none-eabi-gcc-${{ matrix.gcc }} ${{ matrix.mode }}
+  freertos-arm-gcc:
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/arm-none-eabi-gcc:${{ matrix.gcc }}

@@ -3,8 +3,7 @@ name: Build baremetal ARM
 on: [push, pull_request]
 
 jobs:
-  build:
-    name: baremetal arm-none-eabi-gcc-${{ matrix.gcc }} ${{ matrix.mode }}
+  baremetal-arm-gcc:
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/arm-none-eabi-gcc:${{ matrix.gcc }}
