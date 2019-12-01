@@ -28,26 +28,26 @@ jobs:
   clang-tidy:
     runs-on: ubuntu-latest
     container:
-      image: kubasejdak/clang:9
+      image: kubasejdak/${{ matrix.toolchain }}:9
     strategy:
       matrix:
-        platform: [linux, linux-arm]
+        platform: [linux]
         include:
           - platform: linux
-            toolchain: clang-9
+            toolchain: clang
           - platform: linux-arm
-            toolchain: arm-linux-gnueabihf-clang-9
+            toolchain: arm-linux-gnueabihf-clang
 
     steps:
       - uses: actions/checkout@v1
 
-      - name: Build application
+      - name: Generate compilation database
         run: |
           mkdir build
           cd build
 
           conan install .. --build missing
-          cmake .. -DPLATFORM=${{ matrix.platform }} -DTOOLCHAIN=${{ matrix.toolchain }}
+          cmake .. -DPLATFORM=${{ matrix.platform }} -DTOOLCHAIN=${{ matrix.toolchain }}-9
 
       - name: Run clang-tidy
         run: |
