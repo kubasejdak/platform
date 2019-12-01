@@ -6,8 +6,7 @@ on:
       - master
 
 jobs:
-  build:
-    name: Doxygen
+  doxygen:
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/gcc:latest

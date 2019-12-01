@@ -3,8 +3,7 @@ name: Build Linux ARM
 on: [push, pull_request]
 
 jobs:
-  build-gcc:
-    name: Linux arm-linux-gnueabihf-gcc-${{ matrix.gcc }} ${{ matrix.mode }}
+  linux-arm-gcc:
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/arm-linux-gnueabihf-gcc:${{ matrix.gcc }}
@@ -25,8 +24,7 @@ jobs:
         cmake .. -DPLATFORM=linux-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
 
-  build-clang:
-    name: Linux arm-linux-gnueabihf-clang-${{ matrix.clang }} ${{ matrix.mode }}
+  linux-arm-clang:
     runs-on: ubuntu-latest
     container:
       image: kubasejdak/arm-linux-gnueabihf-clang:${{ matrix.clang }}
