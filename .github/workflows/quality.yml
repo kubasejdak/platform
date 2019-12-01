@@ -31,7 +31,7 @@ jobs:
       image: kubasejdak/${{ matrix.toolchain }}:9
     strategy:
       matrix:
-        platform: [linux]
+        platform: [linux, linux-arm]
         include:
           - platform: linux
             toolchain: clang
@@ -57,7 +57,7 @@ jobs:
       - name: Check results
         run: |
           cd build
-          if [ `wc -c < errors.yml` != "0 ]; then
+          if [ `wc -c < errors.yml` != "0" ]; then
               echo "The following clang-tidy errors were detected:"
               cat errors.yml
               exit 1
