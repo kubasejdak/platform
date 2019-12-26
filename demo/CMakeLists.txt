@@ -4,6 +4,8 @@ add_library(appplatform-demo EXCLUDE_FROM_ALL
     appMain.cpp
 )
 
+find_package(fmt REQUIRED)
+
 target_link_libraries(appplatform-demo
     PUBLIC platform-init
     PRIVATE fmt::fmt

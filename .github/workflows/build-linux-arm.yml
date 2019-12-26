@@ -9,7 +9,7 @@ jobs:
       image: kubasejdak/arm-linux-gnueabihf-gcc:${{ matrix.gcc }}
     strategy:
       matrix:
-        gcc: [8]
+        gcc: [9]
         mode: [Debug, Release]
 
     steps:
