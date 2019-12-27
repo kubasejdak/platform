@@ -9,7 +9,7 @@ jobs:
       image: kubasejdak/arm-linux-gnueabihf-gcc:${{ matrix.gcc }}
     strategy:
       matrix:
-        gcc: [9]
+        gcc: [9, 8]
         mode: [Debug, Release]
 
     steps:
@@ -21,7 +21,7 @@ jobs:
         cd build
 
         conan install .. --build missing -s build_type=${{ matrix.mode }}
-        cmake .. -DPLATFORM=linux-arm -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
+        cmake .. -DPLATFORM=linux-arm -DTOOLCHAIN=arm-linux-gnueabihf-gcc-${{ matrix.gcc }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
         make
 
   linux-arm-clang:
