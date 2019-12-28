@@ -3,7 +3,7 @@
 [![Build baremetal ARM](https://github.com/kubasejdak/platform/workflows/Build%20baremetal%20ARM/badge.svg)](https://github.com/kubasejdak/platform/actions?query=workflow%3A%22Build+baremetal+ARM%22)
 [![Build FreeRTOS ARM](https://github.com/kubasejdak/platform/workflows/Build%20FreeRTOS%20ARM/badge.svg)](https://github.com/kubasejdak/platform/actions?query=workflow%3A%22Build+FreeRTOS+ARM%22)
 
-[![Build FreeRTOS ARM](https://github.com/kubasejdak/platform/workflows/Quality/badge.svg)](https://github.com/kubasejdak/platform/actions?query=workflow%3A%22Quality%22)
+[![Quality](https://github.com/kubasejdak/platform/workflows/Quality/badge.svg)](https://github.com/kubasejdak/platform/actions?query=workflow%3A%22Quality%22)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/kubasejdak/platform)](https://www.codefactor.io/repository/github/kubasejdak/platform)
 
 [![Github Releases](https://img.shields.io/github/release/kubasejdak/platform.svg)](https://github.com/kubasejdak/platform/releases)
