@@ -13,16 +13,16 @@ jobs:
         mode: [Debug, Release]
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - name: Build application
-      run: |
-        mkdir build
-        cd build
+      - name: Build application
+        run: |
+          mkdir build
+          cd build
 
-        conan install .. --build missing -s build_type=${{ matrix.mode }}
-        cmake .. -DPLATFORM=linux -DTOOLCHAIN=gcc-${{ matrix.gcc }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
-        make
+          conan install .. --build missing -s build_type=${{ matrix.mode }}
+          cmake .. -DPLATFORM=linux -DTOOLCHAIN=gcc-${{ matrix.gcc }} -DCMAKE_BUILD_TYPE=${{ matrix.mode }}
+          make
 
   linux-clang:
     runs-on: ubuntu-latest

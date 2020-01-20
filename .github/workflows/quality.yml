@@ -9,21 +9,21 @@ jobs:
       image: kubasejdak/clang:9
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - name: Run clang-format
-      run: |
-        tools/check-clang-format.sh app demo
+      - name: Run clang-format
+        run: |
+          tools/check-clang-format.sh app demo
 
-    - name: Check results
-      run: |
-        git update-index -q --refresh
-        git diff-index --quiet HEAD
-        if [ ${?} -ne 0 ]; then
-            echo "The following bad source code formatting was detected:"
-            git --no-pager diff
-            exit 1
-        fi
+      - name: Check results
+        run: |
+          git update-index -q --refresh
+          git diff-index --quiet HEAD
+          if [ ${?} -ne 0 ]; then
+              echo "The following bad source code formatting was detected:"
+              git --no-pager diff
+              exit 1
+          fi
 
   clang-tidy:
     runs-on: ubuntu-latest
