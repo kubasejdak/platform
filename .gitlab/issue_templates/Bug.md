@@ -33,4 +33,3 @@
 1. [List of the included files with their description.]
 
 /label ~bug
-/cc @kubasejdak

@@ -14,4 +14,3 @@
 1. [List of the included files with their description.]
 
 /label ~feature
-/cc @kubasejdak

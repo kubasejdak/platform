@@ -9,4 +9,3 @@
 [Present possible solutions, directions or even code samples that could be used as inspiration for this feature.]
 
 /label ~maintenance
-/cc @kubasejdak

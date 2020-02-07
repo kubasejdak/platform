@@ -6,4 +6,3 @@
 - [ ] [List of requirements, that should be met in order to mark this issue as done.]
 
 /label ~maintenance
-/cc @kubasejdak
