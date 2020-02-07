@@ -1,11 +1,3 @@
----
-name: Bug report
-about: Report a bug in this project
-title: ''
-labels: Bug
-assignees: kubasejdak
----
-
 ### Brief overview of the bug
 [Describe clearly what is the observed bug/problem.]
 
@@ -39,3 +31,6 @@ assignees: kubasejdak
 [Add any other context (e.g. logs, screenshots) that is relevant to this bug.]
 
 1. [List of the included files with their description.]
+
+/label ~bug
+/cc @kubasejdak
