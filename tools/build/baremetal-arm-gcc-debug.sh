@@ -1,5 +1,4 @@
 #!/bin/bash
 
 conan install .. --build missing -pr arm-none-eabi-gcc-9 -s build_type=Debug
-cmake .. -DPLATFORM=freertos-arm
-make
+cmake .. -DPLATFORM=baremetal-arm
