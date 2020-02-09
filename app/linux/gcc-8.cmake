@@ -9,7 +9,7 @@ set(CMAKE_RANLIB                    ranlib${CMAKE_EXECUTABLE_SUFFIX} CACHE INTER
 set(CMAKE_SIZE_UTIL                 size${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_STRIP                     strip${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 
-set(CMAKE_C_FLAGS                   "${APP_C_FLAGS}" CACHE INTERNAL "")
+set(CMAKE_C_FLAGS                   "${APP_C_FLAGS} -Wno-psabi" CACHE INTERNAL "")
 set(CMAKE_CXX_FLAGS                 "${APP_CXX_FLAGS} ${CMAKE_C_FLAGS}" CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS_DEBUG             "-g -O0" CACHE INTERNAL "")
