@@ -5,8 +5,10 @@ stages:
   - build-GCC
   - build-Clang
   - quality
+  - deploy
 
 include:
   - ".gitlab/ci/build-demo-baremetal.yml"
   - ".gitlab/ci/build-demo-linux.yml"
+  - ".gitlab/ci/docs.yml"
   - ".gitlab/ci/quality.yml"
