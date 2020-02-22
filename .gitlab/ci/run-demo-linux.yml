@@ -1,0 +1,27 @@
+.Run_Demo:
+  stage: demo
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - cd ${AppArtifact}/bin
+    - ./platform-demo
+
+Linux_ARM_Demo:
+  extends: .Run_Demo
+  tags:
+    - raspberrypi
+  dependencies:
+    - Linux_ARM_GCC_Debug_Build
+  variables:
+    AppArtifact: "Linux_ARM_GCC_Debug_Build"
+
+Linux_Demo:
+  extends: .Run_Demo
+  tags:
+    - linux
+    - shared
+  image: kubasejdak/gcc:latest
+  dependencies:
+    - Linux_GCC_Debug_Build
+  variables:
+    AppArtifact: "Linux_GCC_Debug_Build"
