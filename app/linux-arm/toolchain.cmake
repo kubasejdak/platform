@@ -6,6 +6,7 @@ if (NOT DEFINED CMAKE_TOOLCHAIN_FILE)
         set(TOOLCHAIN           ${DEFAULT_TOOLCHAIN})
     endif ()
 
+    set(CONAN_PROFILE           ${TOOLCHAIN})
     set(CMAKE_TOOLCHAIN_FILE    ${CMAKE_CURRENT_LIST_DIR}/${TOOLCHAIN}.cmake)
 endif ()
 
