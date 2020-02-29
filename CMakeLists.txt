@@ -1,17 +1,12 @@
 cmake_minimum_required(VERSION 3.15)
 
-include(cmake/doxygen.cmake)
-
-if (NOT DEFINED PLATFORM)
-    message(FATAL_ERROR "'PLATFORM' is not defined!")
-endif ()
-
 # Define application name and settings.
 set(APP platform-demo)
 include(demo/${APP}.cmake)
 
-# Setup platform toolchain file.
-include(app/${PLATFORM}/toolchain.cmake)
+include(cmake/conan.cmake)
+include(cmake/doxygen.cmake)
+include(cmake/platform.cmake)
 
 project(platform VERSION 1.0 LANGUAGES ASM C CXX)
 
@@ -20,11 +15,6 @@ if (NOT CMAKE_BUILD_TYPE)
 endif ()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-# Add conan files.
-if (EXISTS ${CMAKE_BINARY_DIR}/conan_paths.cmake)
-    include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
-endif ()
 
 # Project-wide compilation options.
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
