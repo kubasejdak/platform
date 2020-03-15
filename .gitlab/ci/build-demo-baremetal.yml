@@ -15,26 +15,30 @@
     - cd ${CI_JOB_NAME}
 
     # Build application.
-    - ../tools/build/${Script}.sh
+    - cmake .. -DPLATFORM=${Platform} -DCMAKE_BUILD_TYPE=${BuildType}
     - make
     - make platform-demo.bin
 
 Baremetal_ARM_GCC_Debug_Build:
   extends: .Build_Demo_Baremetal
   variables:
-    Script: "baremetal-arm-gcc-debug"
+    Platform: "baremetal-arm"
+    BuildType: "Debug"
 
 Baremetal_ARM_GCC_Release_Build:
   extends: .Build_Demo_Baremetal
   variables:
-    Script: "baremetal-arm-gcc-release"
+    Platform: "baremetal-arm"
+    Script: "Release"
 
 FreeRTOS_ARM_GCC_Debug_Build:
   extends: .Build_Demo_Baremetal
   variables:
-    Script: "freertos-arm-gcc-debug"
+    Platform: "freertos-arm"
+    Script: "Debug"
 
 FreeRTOS_ARM_GCC_Release_Build:
   extends: .Build_Demo_Baremetal
   variables:
-    Script: "freertos-arm-gcc-release"
+    Platform: "freertos-arm"
+    Script: "Release"
