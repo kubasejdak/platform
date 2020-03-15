@@ -13,65 +13,77 @@
     - cd ${CI_JOB_NAME}
 
     # Build application.
-    - ../tools/build/${Script}.sh
+    - cmake .. -DPLATFORM=${Platform} -DTOOLCHAIN=${Toolchain} -DCMAKE_BUILD_TYPE=${BuildType}
     - make
-
-.Build_Demo_Linux_GCC:
-  extends: .Build_Demo_Linux
-  stage: build-GCC
-  image: kubasejdak/gcc:latest
-
-.Build_Demo_Linux_ARM_GCC:
-  extends: .Build_Demo_Linux
-  stage: build-GCC
-  image: kubasejdak/arm-linux-gnueabihf-gcc:latest
-
-.Build_Demo_Linux_Clang:
-  extends: .Build_Demo_Linux
-  stage: build-Clang
-  image: kubasejdak/clang:latest
 
 .Build_Demo_Linux_ARM_Clang:
   extends: .Build_Demo_Linux
   stage: build-Clang
   image: kubasejdak/arm-linux-gnueabihf-clang:latest
+  variables:
+    Platform: "linux-arm"
+    Toolchain: "arm-linux-gnueabihf-clang-9"
+
+.Build_Demo_Linux_ARM_GCC:
+  extends: .Build_Demo_Linux
+  stage: build-GCC
+  image: kubasejdak/arm-linux-gnueabihf-gcc:latest
+  variables:
+    Platform: "linux-arm"
+    Toolchain: "arm-linux-gnueabihf-gcc-9"
+
+.Build_Demo_Linux_Clang:
+  extends: .Build_Demo_Linux
+  stage: build-Clang
+  image: kubasejdak/clang:latest
+  variables:
+    Platform: "linux"
+    Toolchain: "clang-9"
+
+.Build_Demo_Linux_GCC:
+  extends: .Build_Demo_Linux
+  stage: build-GCC
+  image: kubasejdak/gcc:latest
+  variables:
+    Platform: "linux"
+    Toolchain: "gcc-9"
 
 Linux_ARM_Clang_Debug_Build:
   extends: .Build_Demo_Linux_ARM_Clang
   variables:
-    Script: "linux-arm-clang-debug"
+    BuildType: "Debug"
 
 Linux_ARM_Clang_Release_Build:
   extends: .Build_Demo_Linux_ARM_Clang
   variables:
-    Script: "linux-arm-clang-release"
+    BuildType: "Release"
 
 Linux_ARM_GCC_Debug_Build:
   extends: .Build_Demo_Linux_ARM_GCC
   variables:
-    Script: "linux-arm-gcc-debug"
+    BuildType: "Debug"
 
 Linux_ARM_GCC_Release_Build:
   extends: .Build_Demo_Linux_ARM_GCC
   variables:
-    Script: "linux-arm-gcc-release"
+    BuildType: "Release"
 
 Linux_Clang_Debug_Build:
   extends: .Build_Demo_Linux_Clang
   variables:
-    Script: "linux-clang-debug"
+    BuildType: "Debug"
 
 Linux_Clang_Release_Build:
   extends: .Build_Demo_Linux_Clang
   variables:
-    Script: "linux-clang-release"
+    BuildType: "Release"
 
 Linux_GCC_Debug_Build:
   extends: .Build_Demo_Linux_GCC
   variables:
-    Script: "linux-gcc-debug"
+    BuildType: "Debug"
 
 Linux_GCC_Release_Build:
   extends: .Build_Demo_Linux_GCC
   variables:
-    Script: "linux-gcc-release"
+    BuildType: "Release"

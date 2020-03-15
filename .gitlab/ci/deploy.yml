@@ -16,6 +16,6 @@ pages:
     - cd ${CI_JOB_NAME}
 
     # Generate documentation.
-    - ../tools/build/linux-gcc-debug.sh
+    - cmake .. -DPLATFORM=linux
     - make doxygen
     - mv docs/* ../public
