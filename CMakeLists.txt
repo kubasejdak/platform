@@ -14,6 +14,8 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif ()
 
+conan_init()
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Project-wide compilation options.
