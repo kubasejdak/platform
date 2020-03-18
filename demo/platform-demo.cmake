@@ -1,4 +1,3 @@
-set(LINUX_ARM_TOOLCHAIN_8_PATH      "/opt/toolchains/gcc-arm-8.3-2019.03-x86_64-arm-linux-gnueabihf")
 set(LINUX_ARM_TOOLCHAIN_9_PATH      "/opt/toolchains/gcc-arm-9.2-2019.12-x86_64-arm-none-linux-gnueabihf")
 set(BAREMETAL_ARM_TOOLCHAIN_PATH    "/opt/toolchains/gcc-arm-none-eabi-9-2019-q4-major")
 
