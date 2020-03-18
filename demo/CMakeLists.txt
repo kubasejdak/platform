@@ -1,4 +1,4 @@
-add_subdirectory(${PLATFORM})
+add_subdirectory(init)
 
 add_library(appplatform-demo EXCLUDE_FROM_ALL
     appMain.cpp
