@@ -1,5 +1,5 @@
 set(CMAKE_SYSTEM_NAME               Linux)
-set(CMAKE_SYSTEM_PROCESSOR          ARM)
+set(CMAKE_SYSTEM_PROCESSOR          arm)
 
 # Without this flag CMake is not able to pass the compiler sanity check.
 set(CMAKE_TRY_COMPILE_TARGET_TYPE   STATIC_LIBRARY)
