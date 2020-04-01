@@ -16,8 +16,8 @@ set(CMAKE_STRIP                     ${BAREMETAL_ARM_TOOLCHAIN_PATH}/bin/arm-none
 set(CMAKE_C_FLAGS                   "${APP_C_FLAGS} -Wno-psabi --specs=nosys.specs -fdata-sections -ffunction-sections -Wl,--gc-sections" CACHE INTERNAL "")
 set(CMAKE_CXX_FLAGS                 "${APP_CXX_FLAGS} ${CMAKE_C_FLAGS} -fno-exceptions" CACHE INTERNAL "")
 
-set(CMAKE_C_FLAGS_DEBUG             "-g -O0" CACHE INTERNAL "")
-set(CMAKE_C_FLAGS_RELEASE           "-Os" CACHE INTERNAL "")
+set(CMAKE_C_FLAGS_DEBUG             "-O0 -g" CACHE INTERNAL "")
+set(CMAKE_C_FLAGS_RELEASE           "-Os -DNDEBUG" CACHE INTERNAL "")
 set(CMAKE_CXX_FLAGS_DEBUG           "${CMAKE_C_FLAGS_DEBUG}" CACHE INTERNAL "")
 set(CMAKE_CXX_FLAGS_RELEASE         "${CMAKE_C_FLAGS_RELEASE}" CACHE INTERNAL "")
 
