@@ -4,7 +4,7 @@ add_library(appplatform-demo EXCLUDE_FROM_ALL
     appMain.cpp
 )
 
-conan_get(fmt/6.1.2)
+conan_get(REQUIRES fmt/6.1.2 OPTIONS fmt:header_only=True)
 find_package(fmt REQUIRED)
 
 target_link_libraries(appplatform-demo
