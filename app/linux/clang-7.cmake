@@ -1,5 +1,3 @@
-set(CMAKE_SYSTEM_NAME               Linux)
-
 set(CMAKE_AR                        llvm-ar-7${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_ASM_COMPILER              clang-7${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_C_COMPILER                clang-7${CMAKE_EXECUTABLE_SUFFIX})
