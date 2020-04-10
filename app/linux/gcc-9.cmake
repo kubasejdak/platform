@@ -1,5 +1,3 @@
-set(CMAKE_SYSTEM_NAME               Linux)
-
 set(CMAKE_AR                        gcc-ar-9${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_ASM_COMPILER              gcc-9${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_C_COMPILER                gcc-9${CMAKE_EXECUTABLE_SUFFIX})
