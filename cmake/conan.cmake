@@ -12,15 +12,16 @@ function(conan_init)
     # Value for settings.arch.
     if (NOT DEFINED CONAN_ARCH)
         if (PLATFORM STREQUAL linux)
-            if (CMAKE_HOST_SYSTEM_PROCESSOR MATCHES arm)
+            if (CMAKE_CROSSCOMPILING)
                 set(CONAN_ARCH  armv8_32)
             else ()
-                set(CONAN_ARCH  x86_64)
+                set(CONAN_ARCH  ${CMAKE_HOST_SYSTEM_PROCESSOR})
             endif ()
         elseif (PLATFORM STREQUAL freertos-arm OR PLATFORM STREQUAL baremetal-arm)
             set(CONAN_ARCH      armv7)
         endif ()
     endif ()
+    string(REPLACE "armv7l" "armv8_32" CONAN_ARCH ${CONAN_ARCH})
 
     # Value for settings.arch_build.
     if (CMAKE_CROSSCOMPILING)
