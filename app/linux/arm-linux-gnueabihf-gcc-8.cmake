@@ -8,6 +8,7 @@ set(CMAKE_AR                        ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnuea
 set(CMAKE_ASM_COMPILER              ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-gcc${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_C_COMPILER                ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-gcc${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_CXX_COMPILER              ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-g++${CMAKE_EXECUTABLE_SUFFIX})
+set(CMAKE_LINKER                    ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-ld${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_OBJCOPY                   ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-objcopy${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_RANLIB                    ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-ranlib${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_SIZE_UTIL                 ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-size${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
