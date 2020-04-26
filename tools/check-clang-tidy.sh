@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -f "compile_commands.json" ]; then
+if [[ ! -f "compile_commands.json" ]]; then
     echo "No 'compile_commands.json' file found. Aborting."
     exit 1
 fi
