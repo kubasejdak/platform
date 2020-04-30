@@ -69,7 +69,7 @@ extern "C" void vApplicationGetIdleTaskMemory(StaticTask_t** ppxIdleTaskTCBBuffe
     *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
 }
 
-#    if configUSE_TIMERS
+    #if configUSE_TIMERS
 extern "C" void vApplicationGetTimerTaskMemory(StaticTask_t** ppxTimerTaskTCBBuffer,
                                                StackType_t** ppxTimerTaskStackBuffer,
                                                uint32_t* pulTimerTaskStackSize)
@@ -92,7 +92,7 @@ extern "C" void vApplicationGetTimerTaskMemory(StaticTask_t** ppxTimerTaskTCBBuf
     configTIMER_TASK_STACK_DEPTH is specified in words, not bytes. */
     *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
 }
-#    endif
+    #endif
 #endif
 
 /// Default name that is passed to the application as argv[0].
