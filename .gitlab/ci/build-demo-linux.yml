@@ -40,9 +40,9 @@
 .Build_Demo_Linux_GCC:
   extends: .Build_Demo_Linux
   stage: build-GCC
-  image: kubasejdak/gcc:9
+  image: kubasejdak/gcc:10
   variables:
-    Toolchain: "gcc-9"
+    Toolchain: "gcc-10"
 
 Linux_ARM_Clang_Debug_Build:
   extends: .Build_Demo_Linux_ARM_Clang
