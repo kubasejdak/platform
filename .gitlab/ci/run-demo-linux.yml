@@ -1,4 +1,4 @@
-.Run_Demo:
+.Run_Demo_Linux:
   stage: demo
   variables:
     GIT_STRATEGY: none
@@ -7,7 +7,7 @@
     - ./platform-demo
 
 Linux_ARM_Demo:
-  extends: .Run_Demo
+  extends: .Run_Demo_Linux
   tags:
     - raspberrypi
   dependencies:
@@ -16,7 +16,7 @@ Linux_ARM_Demo:
     AppArtifact: "Linux_ARM_GCC_Debug_Build"
 
 Linux_Demo:
-  extends: .Run_Demo
+  extends: .Run_Demo_Linux
   tags:
     - linux
     - shared

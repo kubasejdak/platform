@@ -117,7 +117,7 @@ int main()
     TaskHandle_t thread = nullptr;
 #if configSUPPORT_STATIC_ALLOCATION
     StaticTask_t threadBuffer{};
-    std::array<StackType_t, configMINIMAL_STACK_SIZE> stack{};
+    static std::array<StackType_t, configMINIMAL_STACK_SIZE> stack{};
 
     thread = xTaskCreateStatic(mainThread,
                                cMainThreadName,
