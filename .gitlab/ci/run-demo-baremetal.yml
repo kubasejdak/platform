@@ -1,0 +1,26 @@
+.Run_Demo_Baremetal:
+  stage: demo
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - cd ${AppArtifact}/bin
+    - ci/program-openocd.py stm32f4discovery platform-demo
+    - ci/logs-reader.py
+
+Baremetal_ARM_Demo:
+  extends: .Run_Demo_Baremetal
+  tags:
+    - stm32f4discovery
+  dependencies:
+    - Baremetal_ARM_GCC_Debug_Build
+  variables:
+    AppArtifact: "Baremetal_ARM_GCC_Debug_Build"
+
+FreeRTOS_ARM_Demo:
+  extends: .Run_Demo_Baremetal
+  tags:
+    - stm32f4discovery
+  dependencies:
+    - FreeRTOS_ARM_GCC_Debug_Build
+  variables:
+    AppArtifact: "FreeRTOS_ARM_GCC_Debug_Build"

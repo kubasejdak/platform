@@ -45,5 +45,6 @@ int appMain(int argc, char* argv[])
     for (int i = 0; i < argc; ++i)
         fmt::print("argv[{}] = '{}'\n", i, argv[i]);
 
+    fmt::print("PASSED\n");
     return EXIT_SUCCESS;
 }

@@ -19,6 +19,9 @@
     - make
     - make platform-demo.bin
 
+    # Copy CI tools.
+    - cp -R ../tools/ci bin/
+
 Baremetal_ARM_GCC_Debug_Build:
   extends: .Build_Demo_Baremetal
   variables:
