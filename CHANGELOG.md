@@ -1,3 +1,9 @@
+## v1.1.1
+
+### Fixed (1)
+
+* Changed all variables in `main()` in `FreeRTOS ARM` platform to be static. (!39)
+
 ## v1.1.0
 
 ### Added (1)

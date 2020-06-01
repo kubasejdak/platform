@@ -8,7 +8,7 @@ include(cmake/conan.cmake)
 include(cmake/doxygen.cmake)
 include(cmake/platform.cmake)
 
-project(platform VERSION 1.1.0 LANGUAGES ASM C CXX)
+project(platform VERSION 1.1.1 LANGUAGES ASM C CXX)
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
