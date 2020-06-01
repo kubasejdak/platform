@@ -114,9 +114,9 @@ static void mainThread(void* /*unused*/)
 /// the application thread using static or dynamic API of the FreeRTOS threading module.
 int main()
 {
-    TaskHandle_t thread = nullptr;
+    static TaskHandle_t thread = nullptr;
 #if configSUPPORT_STATIC_ALLOCATION
-    StaticTask_t threadBuffer{};
+    static StaticTask_t threadBuffer{};
     static std::array<StackType_t, configMINIMAL_STACK_SIZE> stack{};
 
     thread = xTaskCreateStatic(mainThread,
