@@ -20,9 +20,9 @@ class UartLogsReader:
 
             line = str(line, "utf-8")
             print(line)
-            if line == "PASSED":
+            if "PASSED" in  line:
                 return 0
-            if line == "FAILED":
+            if "FAILED" in line:
                 return 1
 
 reader = UartLogsReader("/dev/serial0", 115200)
