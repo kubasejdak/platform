@@ -8,6 +8,7 @@
 
 Linux_ARM_Demo:
   extends: .Run_Demo_Linux
+  image: kubasejdak/arm-tests:latest
   tags:
     - raspberrypi
   dependencies:
@@ -17,10 +18,10 @@ Linux_ARM_Demo:
 
 Linux_Demo:
   extends: .Run_Demo_Linux
+  image: kubasejdak/gcc:latest
   tags:
     - linux
     - shared
-  image: kubasejdak/gcc:latest
   dependencies:
     - Linux_GCC_Debug_Build
   variables:
