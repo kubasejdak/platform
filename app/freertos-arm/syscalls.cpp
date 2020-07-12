@@ -32,6 +32,7 @@
 
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
+#include <sys/time.h>
 #include <sys/types.h>
 
 #include <array>
