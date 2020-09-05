@@ -37,14 +37,6 @@
 #include <cstdlib>
 #include <type_traits>
 
-/// Main application entry point.
-/// @param argc         Number of the commandline arguments.
-/// @param argv         Array of commandline arguments containing argc strings.
-/// @return Exit code of the application.
-/// @note This function should be provided/implemented by the application.
-// NOLINTNEXTLINE
-extern int appMain(int argc, char* argv[]);
-
 #if configSUPPORT_STATIC_ALLOCATION
 extern "C" void vApplicationGetIdleTaskMemory(StaticTask_t** ppxIdleTaskTCBBuffer,
                                               StackType_t** ppxIdleTaskStackBuffer,
@@ -95,6 +87,14 @@ extern "C" void vApplicationGetTimerTaskMemory(StaticTask_t** ppxTimerTaskTCBBuf
     #endif
 #endif
 
+/// Main application entry point.
+/// @param argc         Number of the commandline arguments.
+/// @param argv         Array of commandline arguments containing argc strings.
+/// @return Exit code of the application.
+/// @note This function should be provided/implemented by the application.
+// NOLINTNEXTLINE
+extern int appMain(int argc, char* argv[]);
+
 /// Default name that is passed to the application as argv[0].
 constexpr const char* cMainThreadName = "appMain";
 
@@ -117,11 +117,11 @@ int main()
     static TaskHandle_t thread = nullptr;
 #if configSUPPORT_STATIC_ALLOCATION
     static StaticTask_t threadBuffer{};
-    static std::array<StackType_t, configMINIMAL_STACK_SIZE> stack{};
+    static std::array<StackType_t, APPMAIN_STACK_SIZE> stack{};
 
     thread = xTaskCreateStatic(mainThread,
                                cMainThreadName,
-                               configMINIMAL_STACK_SIZE,
+                               stack.size(),
                                nullptr,
                                tskIDLE_PRIORITY,
                                stack.data(),
@@ -130,8 +130,7 @@ int main()
         return EXIT_FAILURE;
 
 #elif configSUPPORT_DYNAMIC_ALLOCATION
-    auto result
-        = xTaskCreate(mainThread, cMainThreadName, configMINIMAL_STACK_SIZE, nullptr, tskIDLE_PRIORITY, &thread);
+    auto result = xTaskCreate(mainThread, cMainThreadName, APPMAIN_STACK_SIZE, nullptr, tskIDLE_PRIORITY, &thread);
     if (result != pdPASS)
         return EXIT_FAILURE;
 #endif
