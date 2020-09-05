@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 
 # Define application name and settings.
 set(APP platform-demo)
-include(demo/${APP}.cmake)
+include(demo/settings.cmake)
 
 include(cmake/conan.cmake)
 include(cmake/doxygen.cmake)
