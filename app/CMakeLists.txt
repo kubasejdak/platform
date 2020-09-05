@@ -7,6 +7,13 @@ endif ()
 # Project-wide compilation options.
 add_compile_options(-Wall -Wextra -Wpedantic -Werror $<$<COMPILE_LANGUAGE:C>:-std=c17> $<$<COMPILE_LANGUAGE:CXX>:-std=c++2a>)
 
+if (DEFINED APP_PREFIX)
+    message(STATUS "Using '${APP_PREFIX}' prefix in executable name")
+endif ()
+
+get_filename_component(APP_MAIN ${APP} NAME)
+set(APP_EXEC_NAME ${APP_PREFIX}${APP_MAIN})
+
 add_subdirectory(${PLATFORM})
 
 # Make OSAL_PLATFORM visible in the application root directory.

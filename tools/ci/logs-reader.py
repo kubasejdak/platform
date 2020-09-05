@@ -5,7 +5,7 @@ import sys
 import time
 
 class UartLogsReader:
-    timeoutSec = 30
+    timeoutSec = 120
 
     def __init__(self, device, baudrate):
         self.uart = serial.Serial(device, baudrate, timeout=self.timeoutSec)
