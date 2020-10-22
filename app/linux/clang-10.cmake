@@ -5,7 +5,7 @@ set(CMAKE_CXX_COMPILER              clang++-10${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_LINKER                    lld-10${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_OBJCOPY                   llvm-objcopy-10${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_RANLIB                    llvm-ranlib-10${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
-set(CMAKE_SIZE_UTIL                 llvm-size-10${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
+set(CMAKE_SIZE                      llvm-size-10${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_STRIP                     llvm-strip-10${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS                   "${APP_C_FLAGS}" CACHE INTERNAL "")

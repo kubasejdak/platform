@@ -5,7 +5,7 @@ set(CMAKE_CXX_COMPILER              g++-10${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_LINKER                    ld${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_OBJCOPY                   objcopy${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_RANLIB                    ranlib${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
-set(CMAKE_SIZE_UTIL                 size${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
+set(CMAKE_SIZE                      size${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_STRIP                     strip${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS                   "${APP_C_FLAGS} -Wno-psabi" CACHE INTERNAL "")
