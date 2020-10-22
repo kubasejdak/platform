@@ -11,7 +11,7 @@ set(CMAKE_CXX_COMPILER              ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnuea
 set(CMAKE_LINKER                    ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-ld${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_OBJCOPY                   ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-objcopy${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_RANLIB                    ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-ranlib${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
-set(CMAKE_SIZE_UTIL                 ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-size${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
+set(CMAKE_SIZE                      ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-size${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_STRIP                     ${LINUX_ARM_TOOLCHAIN_8_PATH}arm-linux-gnueabihf-strip${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS                   "${APP_C_FLAGS} -Wno-psabi" CACHE INTERNAL "")

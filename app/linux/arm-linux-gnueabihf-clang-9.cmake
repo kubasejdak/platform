@@ -11,7 +11,7 @@ set(CMAKE_CXX_COMPILER              clang++-9${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_LINKER                    lld-9${CMAKE_EXECUTABLE_SUFFIX})
 set(CMAKE_OBJCOPY                   llvm-objcopy-9${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_RANLIB                    llvm-ranlib-9${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
-set(CMAKE_SIZE_UTIL                 llvm-size-9${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
+set(CMAKE_SIZE                      llvm-size-9${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_STRIP                     llvm-strip-9${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 
 get_filename_component(TOOLCHAIN_ROOT "${LINUX_ARM_TOOLCHAIN_9_PATH}" DIRECTORY)
