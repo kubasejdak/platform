@@ -1,6 +1,6 @@
 Clang_Format:
   stage: quality
-  image: kubasejdak/clang:10
+  image: kubasejdak/clang:11
   tags:
     - linux
     - shared
