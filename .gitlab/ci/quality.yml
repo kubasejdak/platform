@@ -38,12 +38,12 @@ Clang_Format:
 
 Clang_Tidy_Linux:
   extends: .Clang_Tidy
-  image: kubasejdak/clang:10
+  image: kubasejdak/clang:11
   variables:
-    Toolchain: "clang-10"
+    Toolchain: "clang-11"
 
 Clang_Tidy_Linux_ARM:
   extends: .Clang_Tidy
-  image: kubasejdak/arm-linux-gnueabihf-clang:10
+  image: kubasejdak/arm-linux-gnueabihf-clang:11
   variables:
-    Toolchain: "arm-linux-gnueabihf-clang-10"
+    Toolchain: "arm-linux-gnueabihf-clang-11"

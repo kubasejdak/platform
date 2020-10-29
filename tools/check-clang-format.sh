@@ -8,7 +8,7 @@ for SRC_PATH in "$@"; do
     TO_CHECK_SOURCES=$(echo "${ALL_SOURCES}" | sed '/freertos-[0-9.]\+/d')
     TO_CHECK_SOURCES=$(echo "${TO_CHECK_SOURCES}" | sed '/FreeRTOSConfig.h/d')
 
-    echo "${TO_CHECK_SOURCES}" | xargs clang-format-10 -style=file -fallback-style=none -i
+    echo "${TO_CHECK_SOURCES}" | xargs clang-format-11 -style=file -fallback-style=none -i
 done
 
 echo "Done."
