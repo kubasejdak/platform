@@ -3,7 +3,6 @@ Clang_Format:
   image: kubasejdak/clang:11
   tags:
     - linux
-    - shared
   dependencies: []
   script:
     - tools/check-clang-format.sh app demo
@@ -20,7 +19,6 @@ Clang_Format:
   stage: quality
   tags:
     - linux
-    - shared
   dependencies: []
   artifacts:
     name: "${CI_JOB_NAME}_${CI_JOB_ID}"
