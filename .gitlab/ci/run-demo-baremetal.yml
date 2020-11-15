@@ -11,14 +11,14 @@
 
 Baremetal_ARM_Demo:
   extends: .Run_Demo_Baremetal
-  dependencies:
+  needs:
     - Baremetal_ARM_GCC_Debug_Build
   variables:
     AppArtifact: "Baremetal_ARM_GCC_Debug_Build"
 
 FreeRTOS_ARM_Demo:
   extends: .Run_Demo_Baremetal
-  dependencies:
+  needs:
     - FreeRTOS_ARM_GCC_Debug_Build
   variables:
     AppArtifact: "FreeRTOS_ARM_GCC_Debug_Build"
