@@ -11,7 +11,7 @@ Linux_ARM_Demo:
   image: kubasejdak/arm-tests:latest
   tags:
     - raspberrypi
-  dependencies:
+  needs:
     - Linux_ARM_GCC_Debug_Build
   variables:
     AppArtifact: "Linux_ARM_GCC_Debug_Build"
@@ -21,7 +21,7 @@ Linux_Demo:
   image: kubasejdak/gcc:latest
   tags:
     - linux
-  dependencies:
+  needs:
     - Linux_GCC_Debug_Build
   variables:
     AppArtifact: "Linux_GCC_Debug_Build"
