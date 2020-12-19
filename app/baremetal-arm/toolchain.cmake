@@ -1,5 +1,5 @@
 if (NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-    set(DEFAULT_TOOLCHAIN       arm-none-eabi-gcc-9)
+    set(DEFAULT_TOOLCHAIN       arm-none-eabi-gcc-10)
 
     if (NOT DEFINED TOOLCHAIN)
         message(STATUS "'TOOLCHAIN' is not defined. Using '${DEFAULT_TOOLCHAIN}'")

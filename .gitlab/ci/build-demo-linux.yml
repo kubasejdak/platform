@@ -25,9 +25,9 @@
 .Build_Demo_Linux_ARM_GCC:
   extends: .Build_Demo_Linux
   stage: build-GCC
-  image: kubasejdak/arm-linux-gnueabihf-gcc:9
+  image: kubasejdak/arm-linux-gnueabihf-gcc:10
   variables:
-    Toolchain: "arm-linux-gnueabihf-gcc-9"
+    Toolchain: "arm-linux-gnueabihf-gcc-10"
 
 .Build_Demo_Linux_Clang:
   extends: .Build_Demo_Linux

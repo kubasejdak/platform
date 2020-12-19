@@ -35,6 +35,7 @@
 
 #include <array>
 #include <cstddef>
+#include <cstdio>
 #include <type_traits>
 
 /// Implements the console capability by defining what should happen with messages intended for stdout.
