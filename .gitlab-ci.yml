@@ -9,9 +9,9 @@ stages:
   - deploy
 
 include:
-  - ".gitlab/ci/build-demo-baremetal.yml"
-  - ".gitlab/ci/build-demo-linux.yml"
-  - ".gitlab/ci/deploy.yml"
-  - ".gitlab/ci/quality.yml"
-  - ".gitlab/ci/run-demo-baremetal.yml"
-  - ".gitlab/ci/run-demo-linux.yml"
+  - "/.gitlab/ci/build-demo-baremetal.yml"
+  - "/.gitlab/ci/build-demo-linux.yml"
+  - "/.gitlab/ci/deploy.yml"
+  - "/.gitlab/ci/quality.yml"
+  - "/.gitlab/ci/run-demo-baremetal.yml"
+  - "/.gitlab/ci/run-demo-linux.yml"
