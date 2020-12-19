@@ -1,4 +1,4 @@
-set(LINUX_ARM_TOOLCHAIN_10_PATH      "/opt/toolchains/gcc-arm-10.2-2020.11-x86_64-arm-none-linux-gnueabihf/bin/")
+set(LINUX_ARM_TOOLCHAIN_10_PATH     "/opt/toolchains/gcc-arm-10.2-2020.11-x86_64-arm-none-linux-gnueabihf/bin/")
 set(BAREMETAL_ARM_TOOLCHAIN_PATH    "/opt/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/")
 
 set(FREERTOS_VERSION                freertos-10.2.1)
