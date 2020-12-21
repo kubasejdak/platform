@@ -29,6 +29,8 @@ Baremetal_ARM_GCC_Debug_Build:
 
 Baremetal_ARM_GCC_Release_Build:
   extends: .Build_Demo_Baremetal
+  only:
+    - master
   variables:
     Platform: "baremetal-arm"
     Script: "Release"
@@ -41,6 +43,8 @@ FreeRTOS_ARM_GCC_Debug_Build:
 
 FreeRTOS_ARM_GCC_Release_Build:
   extends: .Build_Demo_Baremetal
+  only:
+    - master
   variables:
     Platform: "freertos-arm"
     Script: "Release"
