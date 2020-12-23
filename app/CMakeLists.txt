@@ -5,7 +5,7 @@ if (NOT DEFINED PLATFORM)
 endif ()
 
 # Project-wide compilation options.
-add_compile_options(-Wall -Wextra -Wpedantic -Werror $<$<COMPILE_LANGUAGE:C>:-std=c17> $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>)
+add_compile_options(-Wall -Wextra -Wpedantic -Werror $<$<COMPILE_LANGUAGE:C>:-std=c17> $<$<COMPILE_LANGUAGE:CXX>:-std=c++17> $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>)
 
 if (DEFINED APP_PREFIX)
     message(STATUS "Using '${APP_PREFIX}' prefix in executable name")
