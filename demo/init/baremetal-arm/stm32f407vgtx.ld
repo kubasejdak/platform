@@ -188,7 +188,9 @@ SECTIONS
     . = ALIGN(8);
     PROVIDE ( end = . );
     PROVIDE ( _end = . );
+    PROVIDE (heapMin = .);
     . = . + _Min_Heap_Size;
+    PROVIDE (heapMax = .);
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
   } >RAM
