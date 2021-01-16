@@ -43,7 +43,7 @@ int appMain(int argc, char* argv[])
         return EXIT_FAILURE;
 
     for (int i = 0; i < argc; ++i)
-        fmt::print("argv[{}] = '{}'\n", i, argv[i]);
+        fmt::print("argv[{}] = '{}'\n", i, argv[0]);
 
     fmt::print("PASSED\n");
     return EXIT_SUCCESS;
