@@ -13,6 +13,7 @@ set(CMAKE_OBJCOPY                   ${LINUX_ARM_TOOLCHAIN_10_PATH}arm-none-linux
 set(CMAKE_RANLIB                    ${LINUX_ARM_TOOLCHAIN_10_PATH}arm-none-linux-gnueabihf-ranlib${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_SIZE                      ${LINUX_ARM_TOOLCHAIN_10_PATH}arm-none-linux-gnueabihf-size${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_STRIP                     ${LINUX_ARM_TOOLCHAIN_10_PATH}arm-none-linux-gnueabihf-strip${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
+set(CMAKE_GCOV                      ${LINUX_ARM_TOOLCHAIN_10_PATH}arm-none-linux-gnueabihf-gcov${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS                   "${APP_C_FLAGS} -Wno-psabi" CACHE INTERNAL "")
 set(CMAKE_CXX_FLAGS                 "${APP_CXX_FLAGS} ${CMAKE_C_FLAGS}" CACHE INTERNAL "")

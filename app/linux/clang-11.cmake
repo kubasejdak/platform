@@ -7,6 +7,7 @@ set(CMAKE_OBJCOPY                   llvm-objcopy-11${CMAKE_EXECUTABLE_SUFFIX} CA
 set(CMAKE_RANLIB                    llvm-ranlib-11${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_SIZE                      llvm-size-11${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_STRIP                     llvm-strip-11${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
+set(CMAKE_GCOV                      llvm-cov-11${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 
 set(CMAKE_C_FLAGS                   "${APP_C_FLAGS}" CACHE INTERNAL "")
 set(CMAKE_CXX_FLAGS                 "${APP_CXX_FLAGS} ${CMAKE_C_FLAGS}" CACHE INTERNAL "")

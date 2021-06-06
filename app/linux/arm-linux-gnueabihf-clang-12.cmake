@@ -13,6 +13,7 @@ set(CMAKE_OBJCOPY                   llvm-objcopy-12${CMAKE_EXECUTABLE_SUFFIX} CA
 set(CMAKE_RANLIB                    llvm-ranlib-12${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_SIZE                      llvm-size-12${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 set(CMAKE_STRIP                     llvm-strip-12${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
+set(CMAKE_GCOV                      llvm-cov-12${CMAKE_EXECUTABLE_SUFFIX} CACHE INTERNAL "")
 
 get_filename_component(TOOLCHAIN_ROOT "${LINUX_ARM_TOOLCHAIN_10_PATH}" DIRECTORY)
 set(CMAKE_C_FLAGS                   "${APP_C_FLAGS} -target arm-none-linux-gnueabihf --gcc-toolchain=${TOOLCHAIN_ROOT} --sysroot=${TOOLCHAIN_ROOT}/arm-none-linux-gnueabihf/libc" CACHE INTERNAL "")
