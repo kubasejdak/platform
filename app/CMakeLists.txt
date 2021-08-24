@@ -11,8 +11,12 @@ if (DEFINED APP_PREFIX)
     message(STATUS "Using '${APP_PREFIX}' prefix in executable name")
 endif ()
 
+if (DEFINED APP_POSTFIX)
+    message(STATUS "Using '${APP_POSTFIX}' postfix in executable name")
+endif ()
+
 get_filename_component(APP_MAIN ${APP} NAME)
-set(APP_EXEC_NAME ${APP_PREFIX}${APP_MAIN})
+set(APP_EXEC_NAME ${APP_PREFIX}${APP_MAIN}${APP_POSTFIX})
 
 add_subdirectory(${PLATFORM})
 
