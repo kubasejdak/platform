@@ -1,5 +1,7 @@
 if (NOT DEFINED PLATFORM)
-    message(FATAL_ERROR "'PLATFORM' is not defined!")
+    set(DEFAULT_PLATFORM    linux)
+    message(STATUS "'PLATFORM' is not defined. Using '${DEFAULT_PLATFORM}'")
+    set(PLATFORM            ${DEFAULT_PLATFORM})
 endif ()
 
 # Setup platform toolchain file.
