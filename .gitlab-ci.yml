@@ -5,6 +5,7 @@ stages:
   - build-GCC
   - build-Clang
   - demo
+  - sanitizers
   - quality
   - deploy
 
@@ -15,3 +16,4 @@ include:
   - "/.gitlab/ci/demo-linux.yml"
   - "/.gitlab/ci/deploy.yml"
   - "/.gitlab/ci/quality.yml"
+  - "/.gitlab/ci/sanitizers-linux.yml"

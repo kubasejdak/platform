@@ -1,0 +1,34 @@
+.Linux_Sanitizer:
+  stage: sanitizers
+  image: kubasejdak/clang:12
+  tags:
+    - cet_build
+  needs: []
+  artifacts:
+    name: "${CI_JOB_NAME}_${CI_JOB_ID}"
+    expire_in: 2 weeks
+    paths:
+      - ${CI_JOB_NAME}/bin
+  script:
+    - mkdir ${CI_JOB_NAME}
+    - cd ${CI_JOB_NAME}
+
+    # Build application.
+    - cmake .. -DTOOLCHAIN=clang-12 -D${Sanitizer}=ON
+    - make
+    - bin/platform-demo
+
+Address_Sanitizer_Linux:
+  extends: .Linux_Sanitizer
+  variables:
+    Sanitizer: "USE_ASAN"
+
+Leak_Sanitizer_Linux:
+  extends: .Linux_Sanitizer
+  variables:
+    Sanitizer: "USE_LSAN"
+
+UndefinedBehavior_Sanitizer_Linux:
+  extends: .Linux_Sanitizer
+  variables:
+    Sanitizer: "USE_UBSAN"
