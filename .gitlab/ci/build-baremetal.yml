@@ -1,6 +1,6 @@
 .Build_Demo_Baremetal:
   stage: build-GCC
-  image: kubasejdak/arm-none-eabi-gcc:latest
+  image: ${DOCKER_IMAGE_ARM_NONE_GCC}
   tags:
     - linux
   needs: []
