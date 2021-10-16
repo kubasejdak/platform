@@ -8,7 +8,7 @@
 
 Linux_ARM_Demo:
   extends: .Run_Demo_Linux
-  image: kubasejdak/arm-tests:latest
+  image: ${DOCKER_IMAGE_ARM_TESTS}
   tags:
     - raspberrypi
   needs:
@@ -18,7 +18,7 @@ Linux_ARM_Demo:
 
 Linux_Demo:
   extends: .Run_Demo_Linux
-  image: kubasejdak/gcc:latest
+  image: ${DOCKER_IMAGE_GCC}
   tags:
     - linux
   needs:
