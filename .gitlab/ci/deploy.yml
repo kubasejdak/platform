@@ -4,7 +4,7 @@ pages:
     - master
   image: ${DOCKER_IMAGE_GCC}
   tags:
-    - linux
+    - cet_build
   needs: []
   artifacts:
     paths:

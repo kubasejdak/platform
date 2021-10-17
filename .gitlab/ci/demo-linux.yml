@@ -20,7 +20,7 @@ Linux_Demo:
   extends: .Run_Demo_Linux
   image: ${DOCKER_IMAGE_GCC}
   tags:
-    - linux
+    - cet_build
   needs:
     - Linux_GCC_Debug_Build
   variables:
