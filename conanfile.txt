@@ -1,0 +1,8 @@
+[requires]
+fmt/8.0.1
+
+[generators]
+cmake
+
+[options]
+fmt:header_only=True

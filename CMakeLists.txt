@@ -15,7 +15,12 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif ()
 
-conan_init()
+if (USE_CONAN)
+    conan_init_profile()
+    conan_cmake_install(PATH_OR_REFERENCE ${CMAKE_CURRENT_LIST_DIR} BUILD missing)
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup()
+endif ()
 
 # Project-wide compilation options.
 add_compile_options(-Wall -Wextra -Wpedantic -Werror $<$<COMPILE_LANGUAGE:C>:-std=c17> $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>)

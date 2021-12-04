@@ -14,7 +14,7 @@
     - cd ${CI_JOB_NAME}
 
     # Build application.
-    - cmake .. -DTOOLCHAIN=clang -D${Sanitizer}=ON
+    - cmake .. -DTOOLCHAIN=clang -D${Sanitizer}=ON -DUSE_CONAN=ON
     - make
     - bin/platform-demo
 
