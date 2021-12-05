@@ -1,4 +1,4 @@
-set(CMAKE_SYSTEM_NAME               Generic)
+set(CMAKE_SYSTEM_NAME               baremetal)
 set(CMAKE_SYSTEM_PROCESSOR          arm)
 
 # Without that flag CMake is not able to pass test compilation check

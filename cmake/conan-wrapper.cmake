@@ -33,7 +33,7 @@
 # but it is only necessary on the end-user side. It is not necessary to create conan
 # packages, in fact it shouldn't be use for that. Check the project documentation.
 
-# version: 0.17.0-dev
+# version: 0.18.0-dev
 
 include(CMakeParseArguments)
 
@@ -126,6 +126,10 @@ macro(_conan_detect_compiler)
 
     if(ARGUMENTS_ARCH)
         set(_CONAN_SETTING_ARCH ${ARGUMENTS_ARCH})
+    endif()
+
+    if(USING_CXX)
+        set(_CONAN_SETTING_COMPILER_CPPSTD ${CMAKE_CXX_STANDARD})
     endif()
 
     if (${CMAKE_${LANGUAGE}_COMPILER_ID} STREQUAL GNU)
@@ -228,7 +232,7 @@ function(conan_cmake_settings result)
     #message(STATUS "COMPILER " ${CMAKE_CXX_COMPILER})
     #message(STATUS "COMPILER " ${CMAKE_CXX_COMPILER_ID})
     #message(STATUS "VERSION " ${CMAKE_CXX_COMPILER_VERSION})
-    #message(STATUS "FLAGS " ${CMAKE_LANG_FLAGS})
+    #message(STATUS "FLAGS " ${CMAKE_LANG_FLAGS})gcc
     #message(STATUS "LIB ARCH " ${CMAKE_CXX_LIBRARY_ARCHITECTURE})
     #message(STATUS "BUILD TYPE " ${CMAKE_BUILD_TYPE})
     #message(STATUS "GENERATOR " ${CMAKE_GENERATOR})
@@ -417,7 +421,8 @@ endfunction()
 
 function(_collect_settings result)
     set(ARGUMENTS_PROFILE_AUTO arch build_type compiler compiler.version
-        compiler.runtime compiler.libcxx compiler.toolset)
+        compiler.runtime compiler.libcxx compiler.toolset
+        compiler.cppstd)
     foreach(ARG ${ARGUMENTS_PROFILE_AUTO})
         string(TOUPPER ${ARG} _arg_name)
         string(REPLACE "." "_" _arg_name ${_arg_name})

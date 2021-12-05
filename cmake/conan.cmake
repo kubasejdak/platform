@@ -5,11 +5,9 @@ option(USE_CONAN "Automatically use conan to install required dependencies" OFF)
 function(conan_init_profile)
     # Value for settings.os.
     set(CONAN_OS                ${CMAKE_SYSTEM_NAME})
-    string(REPLACE "Darwin" "Macos" CONAN_OS ${CONAN_OS})
 
     # Value for settings.os_build.
-    set(CONAN_HOST_OS       ${CMAKE_HOST_SYSTEM_NAME})
-    string(REPLACE "Darwin" "Macos" CONAN_HOST_OS ${CONAN_HOST_OS})
+    set(CONAN_HOST_OS           ${CMAKE_HOST_SYSTEM_NAME})
 
     # Value for settings.arch.
     if (NOT DEFINED CONAN_ARCH)
@@ -42,13 +40,6 @@ function(conan_init_profile)
     # Value for settings.compiler.version.
     string(REPLACE "." ";" VERSION_LIST ${CMAKE_CXX_COMPILER_VERSION})
     list(GET VERSION_LIST 0 CONAN_COMPILER_MAJOR)
-
-    # Value for settings.compiler.libcxx.
-    if (CONAN_OS STREQUAL Macos AND CONAN_COMPILER STREQUAL clang)
-        set(CONAN_LIBCXX        libc++)
-    else ()
-        set(CONAN_LIBCXX        libstdc++11)
-    endif ()
 
     # Values for env.CFLAGS, env.CXXFLAGS and env.LDFLAGS.
     string(TOUPPER ${CMAKE_BUILD_TYPE} BUILD_TYPE)
