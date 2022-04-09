@@ -24,7 +24,7 @@ if (USE_CONAN)
 endif ()
 
 # Project-wide compilation options.
-add_compile_options(-Wall -Wextra -Wpedantic -Werror $<$<COMPILE_LANGUAGE:C>:-std=c17> $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>)
+add_compile_options(-Wall -Wextra -Wpedantic -Werror $<$<COMPILE_LANGUAGE:C>:-std=c17> $<$<COMPILE_LANGUAGE:CXX>:-std=c++20>)
 
 if (USE_ASAN OR USE_LSAN OR USE_UBSAN)
     enable_sanitizers()
