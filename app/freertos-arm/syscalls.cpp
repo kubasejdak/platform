@@ -39,6 +39,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <cstdio>
+#include <ctime>
 #include <type_traits>
 
 /// Implements the console capability by defining what should happen with messages intended for stdout.
@@ -90,6 +91,11 @@ int _gettimeofday(struct timeval* tp, void* /*unused*/)
     }
 
     return 0;
+}
+
+time_t timegm(struct tm* tm)
+{
+    return mktime(tm);
 }
 
 } // extern "C"
