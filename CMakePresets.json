@@ -1,0 +1,161 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 22,
+    "patch": 3
+  },
+  "configurePresets": [
+    {
+      "name": "linux",
+      "hidden": true,
+      "cacheVariables": {
+        "PLATFORM": "linux",
+        "USE_CONAN": "ON"
+      }
+    },
+    {
+      "name": "linux-gcc",
+      "hidden": true,
+      "inherits": "linux"
+    },
+    {
+      "name": "linux-clang",
+      "hidden": true,
+      "inherits": "linux",
+      "cacheVariables": {
+        "TOOLCHAIN": "clang"
+      }
+    },
+    {
+      "name": "linux-arm-gcc",
+      "hidden": true,
+      "inherits": "linux",
+      "cacheVariables": {
+        "TOOLCHAIN": "arm-linux-gnueabihf-gcc"
+      }
+    },
+    {
+      "name": "linux-arm-clang",
+      "hidden": true,
+      "inherits": "linux",
+      "cacheVariables": {
+        "TOOLCHAIN": "arm-linux-gnueabihf-clang"
+      }
+    },
+    {
+      "name": "baremetal-arm",
+      "hidden": true,
+      "cacheVariables": {
+        "PLATFORM": "baremetal-arm",
+        "USE_CONAN": "ON"
+      }
+    },
+    {
+      "name": "freertos-arm",
+      "hidden": true,
+      "cacheVariables": {
+        "PLATFORM": "freertos-arm",
+        "USE_CONAN": "ON"
+      }
+    },
+    {
+      "name": "debug",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "linux-gcc-debug",
+      "inherits": [
+        "linux-gcc",
+        "debug"
+      ]
+    },
+    {
+      "name": "linux-gcc-release",
+      "inherits": [
+        "linux-gcc",
+        "release"
+      ]
+    },
+    {
+      "name": "linux-clang-debug",
+      "inherits": [
+        "linux-clang",
+        "debug"
+      ]
+    },
+    {
+      "name": "linux-clang-release",
+      "inherits": [
+        "linux-clang",
+        "release"
+      ]
+    },
+    {
+      "name": "linux-arm-gcc-debug",
+      "inherits": [
+        "linux-arm-gcc",
+        "debug"
+      ]
+    },
+    {
+      "name": "linux-arm-gcc-release",
+      "inherits": [
+        "linux-arm-gcc",
+        "release"
+      ]
+    },
+    {
+      "name": "linux-arm-clang-debug",
+      "inherits": [
+        "linux-arm-clang",
+        "debug"
+      ]
+    },
+    {
+      "name": "linux-arm-clang-release",
+      "inherits": [
+        "linux-arm-clang",
+        "release"
+      ]
+    },
+    {
+      "name": "baremetal-arm-debug",
+      "inherits": [
+        "baremetal-arm",
+        "debug"
+      ]
+    },
+    {
+      "name": "baremetal-arm-release",
+      "inherits": [
+        "baremetal-arm",
+        "release"
+      ]
+    },
+    {
+      "name": "freertos-arm-debug",
+      "inherits": [
+        "freertos-arm",
+        "debug"
+      ]
+    },
+    {
+      "name": "freertos-arm-release",
+      "inherits": [
+        "freertos-arm",
+        "release"
+      ]
+    }
+  ]
+}

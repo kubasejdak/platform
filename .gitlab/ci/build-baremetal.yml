@@ -14,7 +14,7 @@
     - cd ${CI_JOB_NAME}
 
     # Build application.
-    - cmake .. -DPLATFORM=${Platform} -DUSE_CONAN=ON -DCMAKE_BUILD_TYPE=${BuildType}
+    - cmake .. --preset ${Preset}
     - make
     - make platform-demo.bin
 
@@ -24,27 +24,23 @@
 Baremetal_ARM_GCC_Debug_Build:
   extends: .Build_Demo_Baremetal
   variables:
-    Platform: "baremetal-arm"
-    BuildType: "Debug"
+    Preset: "baremetal-arm-debug"
 
 Baremetal_ARM_GCC_Release_Build:
   extends: .Build_Demo_Baremetal
   only:
     - master
   variables:
-    Platform: "baremetal-arm"
-    Script: "Release"
+    Preset: "baremetal-arm-release"
 
 FreeRTOS_ARM_GCC_Debug_Build:
   extends: .Build_Demo_Baremetal
   variables:
-    Platform: "freertos-arm"
-    Script: "Debug"
+    Preset: "freertos-arm-debug"
 
 FreeRTOS_ARM_GCC_Release_Build:
   extends: .Build_Demo_Baremetal
   only:
     - master
   variables:
-    Platform: "freertos-arm"
-    Script: "Release"
+    Preset: "freertos-arm-release"
