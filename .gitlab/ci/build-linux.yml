@@ -12,81 +12,73 @@
     - cd ${CI_JOB_NAME}
 
     # Build application.
-    - cmake .. -DTOOLCHAIN=${Toolchain} -DUSE_CONAN=ON -DCMAKE_BUILD_TYPE=${BuildType}
+    - cmake .. --preset ${Preset}
     - make
 
 .Build_Demo_Linux_ARM_Clang:
   extends: .Build_Demo_Linux
   stage: build-Clang
   image: ${DOCKER_IMAGE_ARM_LINUX_CLANG}
-  variables:
-    Toolchain: "arm-linux-gnueabihf-clang"
 
 .Build_Demo_Linux_ARM_GCC:
   extends: .Build_Demo_Linux
   stage: build-GCC
   image: ${DOCKER_IMAGE_ARM_LINUX_GCC}
-  variables:
-    Toolchain: "arm-linux-gnueabihf-gcc"
 
 .Build_Demo_Linux_Clang:
   extends: .Build_Demo_Linux
   stage: build-Clang
   image: ${DOCKER_IMAGE_CLANG}
-  variables:
-    Toolchain: "clang"
 
 .Build_Demo_Linux_GCC:
   extends: .Build_Demo_Linux
   stage: build-GCC
   image: ${DOCKER_IMAGE_GCC}
-  variables:
-    Toolchain: "gcc"
 
 Linux_ARM_Clang_Debug_Build:
   extends: .Build_Demo_Linux_ARM_Clang
   variables:
-    BuildType: "Debug"
+    Preset: "linux-arm-clang-debug"
 
 Linux_ARM_Clang_Release_Build:
   extends: .Build_Demo_Linux_ARM_Clang
   only:
     - master
   variables:
-    BuildType: "Release"
+    Preset: "linux-arm-clang-release"
 
 Linux_ARM_GCC_Debug_Build:
   extends: .Build_Demo_Linux_ARM_GCC
   variables:
-    BuildType: "Debug"
+    Preset: "linux-arm-gcc-debug"
 
 Linux_ARM_GCC_Release_Build:
   extends: .Build_Demo_Linux_ARM_GCC
   only:
     - master
   variables:
-    BuildType: "Release"
+    Preset: "linux-arm-gcc-release"
 
 Linux_Clang_Debug_Build:
   extends: .Build_Demo_Linux_Clang
   variables:
-    BuildType: "Debug"
+    Preset: "linux-clang-debug"
 
 Linux_Clang_Release_Build:
   extends: .Build_Demo_Linux_Clang
   only:
     - master
   variables:
-    BuildType: "Release"
+    Preset: "linux-clang-release"
 
 Linux_GCC_Debug_Build:
   extends: .Build_Demo_Linux_GCC
   variables:
-    BuildType: "Debug"
+    Preset: "linux-gcc-debug"
 
 Linux_GCC_Release_Build:
   extends: .Build_Demo_Linux_GCC
   only:
     - master
   variables:
-    BuildType: "Release"
+    Preset: "linux-gcc-release"

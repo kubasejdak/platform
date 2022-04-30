@@ -31,17 +31,17 @@ Clang_Format:
     - cd ${CI_JOB_NAME}
 
     # Check build.
-    - cmake .. -DTOOLCHAIN=${Toolchain} -DUSE_CONAN=ON
+    - cmake .. --preset ${Preset}
     - ../tools/check-clang-tidy.sh
 
 Clang_Tidy_Linux:
   extends: .Clang_Tidy
   image: ${DOCKER_IMAGE_CLANG}
   variables:
-    Toolchain: "clang"
+    Preset: "linux-clang-debug"
 
 Clang_Tidy_Linux_ARM:
   extends: .Clang_Tidy
   image: ${DOCKER_IMAGE_ARM_LINUX_CLANG}
   variables:
-    Toolchain: "arm-linux-gnueabihf-clang"
+    Preset: "linux-arm-clang-debug"
