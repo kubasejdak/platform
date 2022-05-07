@@ -1,6 +1,8 @@
 #!/bin/bash
 # $1... - paths to look for source files
 
+CLANG_VERSION=14
+
 echo "Running clang-format..."
 
 for SRC_PATH in "$@"; do
@@ -8,7 +10,7 @@ for SRC_PATH in "$@"; do
     TO_CHECK_SOURCES=$(echo "${ALL_SOURCES}" | sed '/freertos-[0-9.]\+/d')
     TO_CHECK_SOURCES=$(echo "${TO_CHECK_SOURCES}" | sed '/FreeRTOSConfig.h/d')
 
-    echo "${TO_CHECK_SOURCES}" | xargs clang-format-13 -style=file -fallback-style=none -i
+    echo "${TO_CHECK_SOURCES}" | xargs clang-format-${CLANG_VERSION} -style=file -fallback-style=none -i
 done
 
 echo "Done."
