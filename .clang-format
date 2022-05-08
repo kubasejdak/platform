@@ -39,7 +39,7 @@ BraceWrapping:
   BeforeLambdaBody: false
   BeforeWhile: true
   IndentBraces: false
-  SplitEmptyFunction: true
+  SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: true
 BreakBeforeBinaryOperators: All
@@ -103,7 +103,7 @@ PenaltyExcessCharacter: 1000000
 PenaltyReturnTypeOnItsOwnLine: 60
 PointerAlignment: Left
 QualifierAlignment: Custom
-QualifierOrder: ['static', 'inline', 'constexpr', 'const', 'volatile', 'type']
+QualifierOrder: ['static', 'constexpr', 'inline', 'const', 'volatile', 'type']
 ReferenceAlignment: Left
 ReflowComments: true
 SeparateDefinitionBlocks: Always
