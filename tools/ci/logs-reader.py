@@ -29,6 +29,6 @@ class UartLogsReader:
             if "FAILED" in line:
                 return 1
 
-reader = UartLogsReader("/dev/serial0", 115200)
+reader = UartLogsReader("/dev/ttyUSB0", 115200)
 status = reader.run()
 sys.exit(status)
