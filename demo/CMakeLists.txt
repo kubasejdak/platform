@@ -1,9 +1,13 @@
 add_subdirectory(init)
 
-add_library(appplatform-demo EXCLUDE_FROM_ALL
+add_executable(platform-demo
     appMain.cpp
 )
 
-target_link_libraries(appplatform-demo
-    PUBLIC platform-init
+target_link_libraries(platform-demo
+    PRIVATE platform::main platform::init
 )
+
+if (PLATFORM STREQUAL freertos-arm OR PLATFORM STREQUAL baremetal-arm)
+    objcopy_generate_bin(platform-demo)
+endif ()

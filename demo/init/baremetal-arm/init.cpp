@@ -30,7 +30,7 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
-#include "platformInit.hpp"
+#include "platform/init.hpp"
 
 #include <stm32f4xx.h>
 
@@ -41,6 +41,12 @@
 UART_HandleTypeDef uart{};
 
 extern "C" {
+
+// NOLINTNEXTLINE
+void SysTick_Handler()
+{
+    HAL_IncTick();
+}
 
 void HAL_MspInit()
 {
@@ -87,10 +93,14 @@ static bool consoleInitUart()
     return result == HAL_OK;
 }
 
-bool platformInit()
+namespace platform {
+
+bool init()
 {
     if (HAL_Init() != HAL_OK)
         return false;
 
     return consoleInitUart();
 }
+
+} // namespace platform
