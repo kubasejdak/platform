@@ -30,7 +30,7 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
-#include "platformInit.hpp"
+#include "platform/init.hpp"
 
 #include <fmt/printf.h>
 
@@ -39,7 +39,7 @@
 // NOLINTNEXTLINE
 int appMain(int argc, char* argv[])
 {
-    if (!platformInit())
+    if (!platform::init())
         return EXIT_FAILURE;
 
     for (int i = 0; i < argc; ++i)

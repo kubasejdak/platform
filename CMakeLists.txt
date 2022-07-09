@@ -1,7 +1,5 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.22)
 
-# Define application name and settings.
-set(APP platform-demo)
 include(demo/settings.cmake)
 
 include(cmake/conan.cmake)
@@ -32,7 +30,7 @@ endif ()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_subdirectory(app)
+add_subdirectory(lib)
 add_subdirectory(demo)
 
 doxygen_addTarget(${CMAKE_CURRENT_SOURCE_DIR}/app README.md)
