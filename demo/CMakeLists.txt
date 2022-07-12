@@ -5,7 +5,7 @@ add_executable(platform-demo
 )
 
 target_link_libraries(platform-demo
-    PRIVATE platform::main platform::init
+    PRIVATE platform::init platform::main
 )
 
 if (PLATFORM STREQUAL freertos-arm OR PLATFORM STREQUAL baremetal-arm)
