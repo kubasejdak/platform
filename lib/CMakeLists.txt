@@ -7,7 +7,7 @@ endif ()
 # Project-wide compilation options.
 add_compile_options(-Wall -Wextra -Wpedantic -Werror $<$<COMPILE_LANGUAGE:C>:-std=c17> $<$<COMPILE_LANGUAGE:CXX>:-std=c++20> $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>)
 
-add_library(platform-main EXCLUDE_FROM_ALL)
+add_library(platform-main OBJECT EXCLUDE_FROM_ALL)
 add_library(platform::main ALIAS platform-main)
 
 set(PLATFORM_LIB_PATH           "${CMAKE_BINARY_DIR}/lib" CACHE INTERNAL "")
