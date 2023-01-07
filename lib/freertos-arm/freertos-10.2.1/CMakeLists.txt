@@ -17,7 +17,7 @@ target_include_directories(freertos
 )
 
 target_link_libraries(freertos
-    PUBLIC freertos-portable freertos-config
+    PUBLIC freertos-config freertos-portable
 )
 
 target_compile_options(freertos
