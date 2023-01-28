@@ -9,10 +9,6 @@ include(cmake/sanitizers.cmake)
 
 project(platform VERSION 1.1.2 LANGUAGES ASM C CXX)
 
-if (NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Debug)
-endif ()
-
 if (USE_CONAN)
     conan_init_wrapper()
     conan_init_profile()
