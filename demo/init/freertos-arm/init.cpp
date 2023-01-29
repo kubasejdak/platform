@@ -34,6 +34,7 @@
 
 #include <stm32f4xx.h>
 
+#include <cstddef>
 #include <cstdint>
 #include <type_traits>
 
