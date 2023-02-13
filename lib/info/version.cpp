@@ -4,7 +4,7 @@
 /// @author Kuba Sejdak
 /// @copyright BSD 2-Clause License
 ///
-/// Copyright (c) 2019-2023, Kuba Sejdak <kuba.sejdak@gmail.com>
+/// Copyright (c) 2023-2023, Kuba Sejdak <kuba.sejdak@gmail.com>
 /// All rights reserved.
 ///
 /// Redistribution and use in source and binary forms, with or without
@@ -30,27 +30,30 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
-#include <platform/init.hpp>
-#include <platform/version.hpp>
+#include "platform/version.hpp"
+#if __has_include("version.h")
+    #include "version.h"
+#else
+    #define PLATFORM_GIT_BRANCH "N/A" // NOLINT
+    #define PLATFORM_GIT_COMMIT "N/A" // NOLINT
+    #define PLATFORM_GIT_TAG    "N/A" // NOLINT
+#endif
 
-#include <fmt/printf.h>
+namespace platform {
 
-#include <cstdlib>
-
-// NOLINTNEXTLINE
-int appMain(int argc, char* argv[])
+std::string_view gitBranch()
 {
-    if (!platform::init())
-        return EXIT_FAILURE;
-
-    fmt::print("Using platform:\n");
-    fmt::print("    git branch : {}\n", platform::gitBranch());
-    fmt::print("    git commit : {}\n", platform::gitCommit());
-    fmt::print("    git tag    : {}\n", platform::gitTag());
-
-    for (int i = 0; i < argc; ++i)
-        fmt::print("argv[{}] = '{}'\n", i, argv[0]);
-
-    fmt::print("PASSED\n");
-    return EXIT_SUCCESS;
+    return PLATFORM_GIT_BRANCH;
 }
+
+std::string_view gitCommit()
+{
+    return PLATFORM_GIT_COMMIT;
+}
+
+std::string_view gitTag()
+{
+    return PLATFORM_GIT_TAG;
+}
+
+} // namespace platform

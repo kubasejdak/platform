@@ -4,7 +4,7 @@
 /// @author Kuba Sejdak
 /// @copyright BSD 2-Clause License
 ///
-/// Copyright (c) 2019-2023, Kuba Sejdak <kuba.sejdak@gmail.com>
+/// Copyright (c) 2023-2023, Kuba Sejdak <kuba.sejdak@gmail.com>
 /// All rights reserved.
 ///
 /// Redistribution and use in source and binary forms, with or without
@@ -30,27 +30,22 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
-#include <platform/init.hpp>
-#include <platform/version.hpp>
+#pragma once
 
-#include <fmt/printf.h>
+#include <string_view>
 
-#include <cstdlib>
+namespace platform {
 
-// NOLINTNEXTLINE
-int appMain(int argc, char* argv[])
-{
-    if (!platform::init())
-        return EXIT_FAILURE;
+/// Returns name of the GIT branch from which binary was built.
+/// @return Name of the GIT branch or "N/A".
+std::string_view gitBranch();
 
-    fmt::print("Using platform:\n");
-    fmt::print("    git branch : {}\n", platform::gitBranch());
-    fmt::print("    git commit : {}\n", platform::gitCommit());
-    fmt::print("    git tag    : {}\n", platform::gitTag());
+/// Returns SHA of the GIT commit from which binary was built.
+/// @return SHA of the GIT commit or "N/A".
+std::string_view gitCommit();
 
-    for (int i = 0; i < argc; ++i)
-        fmt::print("argv[{}] = '{}'\n", i, argv[0]);
+/// Returns name of the GIT tag from which binary was built.
+/// @return Name of the GIT tag or "N/A".
+std::string_view gitTag();
 
-    fmt::print("PASSED\n");
-    return EXIT_SUCCESS;
-}
+} // namespace platform
