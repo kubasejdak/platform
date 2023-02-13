@@ -20,6 +20,11 @@ set_target_properties(platform-main PROPERTIES
 )
 
 add_subdirectory(${PLATFORM})
+add_subdirectory(info)
+
+target_link_libraries(platform-main
+    PUBLIC platform::info
+)
 
 # Make OSAL_PLATFORM visible in the application root directory.
 set(OSAL_PLATFORM ${OSAL_PLATFORM} PARENT_SCOPE)

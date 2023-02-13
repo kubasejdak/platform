@@ -6,7 +6,6 @@ cmake-build-*/
 CMakeLists.txt.user
 .vscode/
 .idea/
-version.hpp
 
 # macOS files.
 .DS_Store
