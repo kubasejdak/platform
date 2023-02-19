@@ -34,9 +34,9 @@
 #if __has_include("git.h")
     #include "git.h"
 #else
+    #define PLATFORM_GIT_TAG        "N/A" // NOLINT
     #define PLATFORM_GIT_BRANCH     "N/A" // NOLINT
     #define PLATFORM_GIT_COMMIT     "N/A" // NOLINT
-    #define PLATFORM_GIT_TAG        "N/A" // NOLINT
     #define PLATFORM_GIT_USER_NAME  "N/A" // NOLINT
     #define PLATFORM_GIT_USER_EMAIL "N/A" // NOLINT
 #endif
