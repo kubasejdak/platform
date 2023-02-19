@@ -30,8 +30,8 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
+#include <platform/git.hpp>
 #include <platform/init.hpp>
-#include <platform/version.hpp>
 
 #include <fmt/printf.h>
 
@@ -44,9 +44,11 @@ int appMain(int argc, char* argv[])
         return EXIT_FAILURE;
 
     fmt::print("Using platform:\n");
-    fmt::print("    git branch : {}\n", platform::gitBranch());
-    fmt::print("    git commit : {}\n", platform::gitCommit());
-    fmt::print("    git tag    : {}\n", platform::gitTag());
+    fmt::print("    git tag        : {}\n", platform::gitTag());
+    fmt::print("    git branch     : {}\n", platform::gitBranch());
+    fmt::print("    git commit     : {}\n", platform::gitCommit());
+    fmt::print("    git user name  : {}\n", platform::gitUserName());
+    fmt::print("    git user email : {}\n", platform::gitUserEmail());
 
     for (int i = 0; i < argc; ++i)
         fmt::print("argv[{}] = '{}'\n", i, argv[0]);

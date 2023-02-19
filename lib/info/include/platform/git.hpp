@@ -30,30 +30,30 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
-#include "platform/version.hpp"
-#if __has_include("version.h")
-    #include "version.h"
-#else
-    #define PLATFORM_GIT_BRANCH "N/A" // NOLINT
-    #define PLATFORM_GIT_COMMIT "N/A" // NOLINT
-    #define PLATFORM_GIT_TAG    "N/A" // NOLINT
-#endif
+#pragma once
+
+#include <string_view>
 
 namespace platform {
 
-std::string_view gitBranch()
-{
-    return PLATFORM_GIT_BRANCH;
-}
+/// Returns name of the GIT tag from which binary was built.
+/// @return Name of the GIT tag or "N/A".
+std::string_view gitTag();
 
-std::string_view gitCommit()
-{
-    return PLATFORM_GIT_COMMIT;
-}
+/// Returns name of the GIT branch from which binary was built.
+/// @return Name of the GIT branch or "N/A".
+std::string_view gitBranch();
 
-std::string_view gitTag()
-{
-    return PLATFORM_GIT_TAG;
-}
+/// Returns SHA of the GIT commit from which binary was built.
+/// @return SHA of the GIT commit or "N/A".
+std::string_view gitCommit();
+
+/// Returns user name who built the binary.
+/// @return User name who built the binary.
+std::string_view gitUserName();
+
+/// Returns user email who built the binary.
+/// @return User email who built the binary.
+std::string_view gitUserEmail();
 
 } // namespace platform

@@ -30,8 +30,42 @@
 ///
 /////////////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#include "platform/git.hpp"
+#if __has_include("git.h")
+    #include "git.h"
+#else
+    #define PLATFORM_GIT_BRANCH     "N/A" // NOLINT
+    #define PLATFORM_GIT_COMMIT     "N/A" // NOLINT
+    #define PLATFORM_GIT_TAG        "N/A" // NOLINT
+    #define PLATFORM_GIT_USER_NAME  "N/A" // NOLINT
+    #define PLATFORM_GIT_USER_EMAIL "N/A" // NOLINT
+#endif
 
-#define @VERSION_TARGET@_GIT_BRANCH "@GIT_BRANCH@"
-#define @VERSION_TARGET@_GIT_COMMIT "@GIT_COMMIT@"
-#define @VERSION_TARGET@_GIT_TAG    "@GIT_TAG@"
+namespace platform {
+
+std::string_view gitTag()
+{
+    return PLATFORM_GIT_TAG;
+}
+
+std::string_view gitBranch()
+{
+    return PLATFORM_GIT_BRANCH;
+}
+
+std::string_view gitCommit()
+{
+    return PLATFORM_GIT_COMMIT;
+}
+
+std::string_view gitUserName()
+{
+    return PLATFORM_GIT_USER_NAME;
+}
+
+std::string_view gitUserEmail()
+{
+    return PLATFORM_GIT_USER_EMAIL;
+}
+
+} // namespace platform
