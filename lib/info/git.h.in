@@ -32,20 +32,8 @@
 
 #pragma once
 
-#include <string_view>
-
-namespace platform {
-
-/// Returns name of the GIT branch from which binary was built.
-/// @return Name of the GIT branch or "N/A".
-std::string_view gitBranch();
-
-/// Returns SHA of the GIT commit from which binary was built.
-/// @return SHA of the GIT commit or "N/A".
-std::string_view gitCommit();
-
-/// Returns name of the GIT tag from which binary was built.
-/// @return Name of the GIT tag or "N/A".
-std::string_view gitTag();
-
-} // namespace platform
+#define @VERSION_TARGET@_GIT_TAG        "@GIT_TAG@"
+#define @VERSION_TARGET@_GIT_BRANCH     "@GIT_BRANCH@"
+#define @VERSION_TARGET@_GIT_COMMIT     "@GIT_COMMIT@"
+#define @VERSION_TARGET@_GIT_USER_NAME  "@GIT_USER_NAME@"
+#define @VERSION_TARGET@_GIT_USER_EMAIL "@GIT_USER_EMAIL@"
