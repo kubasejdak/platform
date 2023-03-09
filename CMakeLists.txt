@@ -29,4 +29,4 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_subdirectory(lib)
 add_subdirectory(demo)
 
-doxygen_addTarget(${CMAKE_CURRENT_SOURCE_DIR}/app README.md)
+doxygen_addTarget(${CMAKE_CURRENT_SOURCE_DIR}/lib README.md)
