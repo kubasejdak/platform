@@ -1,5 +1,5 @@
 .linux-sanitizer:
-  stage: "Sanitizers"
+  stage: sanitizers
   image: ${DOCKER_IMAGE_CLANG}
   tags:
     - cet_build

@@ -1,5 +1,5 @@
 .build-demo-baremetal:
-  stage: "Build GCC"
+  stage: build-gcc
   image: ${DOCKER_IMAGE_ARM_NONE_GCC}
   tags:
     - cet_build

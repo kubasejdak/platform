@@ -1,5 +1,5 @@
 .run-demo-linux:
-  stage: "Demo"
+  stage: demo
   variables:
     GIT_STRATEGY: none
   script:

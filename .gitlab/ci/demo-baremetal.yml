@@ -1,5 +1,5 @@
 .run-demo-baremetal:
-  stage: "Demo"
+  stage: demo
   tags:
     - stm32f4discovery
   variables:

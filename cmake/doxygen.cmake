@@ -1,3 +1,5 @@
+option(GENERATE_DOCS "Generate Doxygen docs" OFF)
+
 function(doxygen_addTarget)
     find_package(Doxygen)
     if (DOXYGEN_FOUND)
