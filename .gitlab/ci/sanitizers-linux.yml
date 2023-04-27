@@ -1,5 +1,5 @@
-.Linux_Sanitizer:
-  stage: sanitizers
+.linux-sanitizer:
+  stage: "Sanitizers"
   image: ${DOCKER_IMAGE_CLANG}
   tags:
     - cet_build
@@ -18,17 +18,17 @@
     - make
     - bin/platform-demo
 
-Address_Sanitizer_Linux:
-  extends: .Linux_Sanitizer
+asan-linux:
+  extends: .linux-sanitizer
   variables:
     Sanitizer: "USE_ASAN"
 
-Leak_Sanitizer_Linux:
-  extends: .Linux_Sanitizer
+lsan-linux:
+  extends: .linux-sanitizer
   variables:
     Sanitizer: "USE_LSAN"
 
-UndefinedBehavior_Sanitizer_Linux:
-  extends: .Linux_Sanitizer
+ubsan-linux:
+  extends: .linux-sanitizer
   variables:
     Sanitizer: "USE_UBSAN"

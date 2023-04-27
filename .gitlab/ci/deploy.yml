@@ -1,5 +1,5 @@
 pages:
-  stage: deploy
+  stage: "Deploy"
   only:
     - master
   image: ${DOCKER_IMAGE_GCC}

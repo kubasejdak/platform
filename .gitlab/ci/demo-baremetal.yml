@@ -1,5 +1,5 @@
-.Run_Demo_Baremetal:
-  stage: demo
+.run-demo-baremetal:
+  stage: "Demo"
   tags:
     - stm32f4discovery
   variables:
@@ -9,16 +9,16 @@
     - ci/program-openocd.py stm32f4discovery platform-demo
     - ci/logs-reader.py
 
-Baremetal_ARM_Demo:
-  extends: .Run_Demo_Baremetal
+baremetal-arm-demo:
+  extends: .run-demo-baremetal
   needs:
-    - Baremetal_ARM_GCC_Debug_Build
+    - baremetal-arm-gcc-debug-build
   variables:
-    AppArtifact: "Baremetal_ARM_GCC_Debug_Build"
+    AppArtifact: "baremetal-arm-gcc-debug-build"
 
-FreeRTOS_ARM_Demo:
-  extends: .Run_Demo_Baremetal
+freertos-arm-demo:
+  extends: .run-demo-baremetal
   needs:
-    - FreeRTOS_ARM_GCC_Debug_Build
+    - freertos-arm-gcc-debug-build
   variables:
-    AppArtifact: "FreeRTOS_ARM_GCC_Debug_Build"
+    AppArtifact: "freertos-arm-gcc-debug-build"

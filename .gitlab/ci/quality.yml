@@ -1,5 +1,5 @@
-Clang_Format:
-  stage: quality
+clang-format:
+  stage: "Quality"
   image: ${DOCKER_IMAGE_CLANG}
   tags:
     - cet_build
@@ -14,8 +14,8 @@ Clang_Format:
         exit 1
       fi
 
-.Clang_Tidy:
-  stage: quality
+.clang-tidy:
+  stage: "Quality"
   tags:
     - cet_build
   needs: []
@@ -34,14 +34,14 @@ Clang_Format:
     - cmake .. --preset ${Preset}
     - ../tools/check-clang-tidy.sh
 
-Clang_Tidy_Linux:
-  extends: .Clang_Tidy
+clang-tidy-linux:
+  extends: .clang-tidy
   image: ${DOCKER_IMAGE_CLANG}
   variables:
     Preset: "linux-clang-debug"
 
-Clang_Tidy_Linux_ARM:
-  extends: .Clang_Tidy
+clang-tidy-linux-arm:
+  extends: .clang-tidy
   image: ${DOCKER_IMAGE_ARM_LINUX_CLANG}
   variables:
     Preset: "linux-arm-clang-debug"
