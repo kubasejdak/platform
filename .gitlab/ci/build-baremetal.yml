@@ -1,5 +1,5 @@
-.Build_Demo_Baremetal:
-  stage: build-gcc
+.build-demo-baremetal:
+  stage: "Build GCC"
   image: ${DOCKER_IMAGE_ARM_NONE_GCC}
   tags:
     - cet_build
@@ -21,25 +21,25 @@
     # Copy CI tools.
     - cp -R ../tools/ci bin/
 
-Baremetal_ARM_GCC_Debug_Build:
-  extends: .Build_Demo_Baremetal
+baremetal-arm-gcc-debug-build:
+  extends: .build-demo-baremetal
   variables:
     Preset: "baremetal-arm-debug"
 
-Baremetal_ARM_GCC_Release_Build:
-  extends: .Build_Demo_Baremetal
+baremetal-arm-gcc-release-build:
+  extends: .build-demo-baremetal
   only:
     - master
   variables:
     Preset: "baremetal-arm-release"
 
-FreeRTOS_ARM_GCC_Debug_Build:
-  extends: .Build_Demo_Baremetal
+freertos-arm-gcc-debug-build:
+  extends: .build-demo-baremetal
   variables:
     Preset: "freertos-arm-debug"
 
-FreeRTOS_ARM_GCC_Release_Build:
-  extends: .Build_Demo_Baremetal
+freertos-arm-gcc-release-build:
+  extends: .build-demo-baremetal
   only:
     - master
   variables:

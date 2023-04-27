@@ -8,12 +8,12 @@ variables:
   DOCKER_IMAGE_ARM_TESTS: embeddedlinux/arm-tests:11-22.04
 
 stages:
-  - build-gcc
-  - build-clang
-  - demo
-  - sanitizers
-  - quality
-  - deploy
+  - "Build GCC"
+  - "Build Clang"
+  - "Demo"
+  - "Sanitizers"
+  - "Quality"
+  - "Deploy"
 
 include:
   - "/.gitlab/ci/build-baremetal.yml"

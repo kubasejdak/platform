@@ -1,4 +1,4 @@
-.Build_Demo_Linux:
+.build-demo-linux:
   tags:
     - cet_build
   needs: []
@@ -15,69 +15,69 @@
     - cmake .. --preset ${Preset}
     - make
 
-.Build_Demo_Linux_ARM_Clang:
-  extends: .Build_Demo_Linux
-  stage: build-clang
+.build-demo-linux-arm-clang:
+  extends: .build-demo-linux
+  stage: "Build Clang"
   image: ${DOCKER_IMAGE_ARM_LINUX_CLANG}
 
-.Build_Demo_Linux_ARM_GCC:
-  extends: .Build_Demo_Linux
-  stage: build-gcc
+.build-demo-linux-arm-gcc:
+  extends: .build-demo-linux
+  stage: "Build GCC"
   image: ${DOCKER_IMAGE_ARM_LINUX_GCC}
 
-.Build_Demo_Linux_Clang:
-  extends: .Build_Demo_Linux
-  stage: build-clang
+.build-demo-linux-clang:
+  extends: .build-demo-linux
+  stage: "Build Clang"
   image: ${DOCKER_IMAGE_CLANG}
 
-.Build_Demo_Linux_GCC:
-  extends: .Build_Demo_Linux
-  stage: build-gcc
+.build-demo-linux-gcc:
+  extends: .build-demo-linux
+  stage: "Build GCC"
   image: ${DOCKER_IMAGE_GCC}
 
-Linux_ARM_Clang_Debug_Build:
-  extends: .Build_Demo_Linux_ARM_Clang
+linux-arm-clang-debug-build:
+  extends: .build-demo-linux-arm-clang
   variables:
     Preset: "linux-arm-clang-debug"
 
-Linux_ARM_Clang_Release_Build:
-  extends: .Build_Demo_Linux_ARM_Clang
+linux-arm-clang-release-build:
+  extends: .build-demo-linux-arm-clang
   only:
     - master
   variables:
     Preset: "linux-arm-clang-release"
 
-Linux_ARM_GCC_Debug_Build:
-  extends: .Build_Demo_Linux_ARM_GCC
+linux-arm-gcc-debug-build:
+  extends: .build-demo-linux-arm-gcc
   variables:
     Preset: "linux-arm-gcc-debug"
 
-Linux_ARM_GCC_Release_Build:
-  extends: .Build_Demo_Linux_ARM_GCC
+linux-arm-gcc-release-build:
+  extends: .build-demo-linux-arm-gcc
   only:
     - master
   variables:
     Preset: "linux-arm-gcc-release"
 
-Linux_Clang_Debug_Build:
-  extends: .Build_Demo_Linux_Clang
+linux-clang-debug-build:
+  extends: .build-demo-linux-clang
   variables:
     Preset: "linux-clang-debug"
 
-Linux_Clang_Release_Build:
-  extends: .Build_Demo_Linux_Clang
+linux-clang-release-build:
+  extends: .build-demo-linux-clang
   only:
     - master
   variables:
     Preset: "linux-clang-release"
 
-Linux_GCC_Debug_Build:
-  extends: .Build_Demo_Linux_GCC
+linux-gcc-debug-build:
+  extends: .build-demo-linux-gcc
   variables:
     Preset: "linux-gcc-debug"
 
-Linux_GCC_Release_Build:
-  extends: .Build_Demo_Linux_GCC
+linux-gcc-release-build:
+  extends: .build-demo-linux-gcc
   only:
     - master
   variables:

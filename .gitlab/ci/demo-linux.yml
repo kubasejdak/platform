@@ -1,27 +1,27 @@
-.Run_Demo_Linux:
-  stage: demo
+.run-demo-linux:
+  stage: "Demo"
   variables:
     GIT_STRATEGY: none
   script:
     - cd ${AppArtifact}/bin
     - ./platform-demo
 
-Linux_ARM_Demo:
-  extends: .Run_Demo_Linux
+linux-arm-demo:
+  extends: .run-demo-linux
   image: ${DOCKER_IMAGE_ARM_TESTS}
   tags:
     - raspberrypi
   needs:
-    - Linux_ARM_GCC_Debug_Build
+    - linux-arm-gcc-debug-build
   variables:
-    AppArtifact: "Linux_ARM_GCC_Debug_Build"
+    AppArtifact: "linux-arm-gcc-debug-build"
 
-Linux_Demo:
-  extends: .Run_Demo_Linux
+linux-demo:
+  extends: .run-demo-linux
   image: ${DOCKER_IMAGE_GCC}
   tags:
     - cet_build
   needs:
-    - Linux_GCC_Debug_Build
+    - linux-gcc-debug-build
   variables:
-    AppArtifact: "Linux_GCC_Debug_Build"
+    AppArtifact: "linux-gcc-debug-build"
