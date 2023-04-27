@@ -130,6 +130,16 @@
       ]
     },
     {
+      "name": "linux-doxygen",
+      "inherits": [
+        "linux-gcc",
+        "debug"
+      ],
+      "cacheVariables": {
+        "GENERATE_DOCS": "ON"
+      }
+    },
+    {
       "name": "baremetal-arm-debug",
       "inherits": [
         "baremetal-arm",

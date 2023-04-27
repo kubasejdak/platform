@@ -1,5 +1,5 @@
 clang-format:
-  stage: "Quality"
+  stage: quality
   image: ${DOCKER_IMAGE_CLANG}
   tags:
     - cet_build
@@ -15,7 +15,7 @@ clang-format:
       fi
 
 .clang-tidy:
-  stage: "Quality"
+  stage: quality
   tags:
     - cet_build
   needs: []

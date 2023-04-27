@@ -17,22 +17,22 @@
 
 .build-demo-linux-arm-clang:
   extends: .build-demo-linux
-  stage: "Build Clang"
+  stage: build-clang
   image: ${DOCKER_IMAGE_ARM_LINUX_CLANG}
 
 .build-demo-linux-arm-gcc:
   extends: .build-demo-linux
-  stage: "Build GCC"
+  stage: build-gcc
   image: ${DOCKER_IMAGE_ARM_LINUX_GCC}
 
 .build-demo-linux-clang:
   extends: .build-demo-linux
-  stage: "Build Clang"
+  stage: build-clang
   image: ${DOCKER_IMAGE_CLANG}
 
 .build-demo-linux-gcc:
   extends: .build-demo-linux
-  stage: "Build GCC"
+  stage: build-gcc
   image: ${DOCKER_IMAGE_GCC}
 
 linux-arm-clang-debug-build:
