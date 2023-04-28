@@ -1,0 +1,47 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 2
+  },
+  "configurePresets": [
+    {
+      "name": "linux",
+      "hidden": true,
+      "cacheVariables": {
+        "PLATFORM": "linux",
+        "USE_CONAN": "ON"
+      }
+    },
+    {
+      "name": "linux-gcc",
+      "hidden": true,
+      "inherits": "linux"
+    },
+    {
+      "name": "linux-clang",
+      "hidden": true,
+      "inherits": "linux",
+      "cacheVariables": {
+        "TOOLCHAIN": "clang"
+      }
+    },
+    {
+      "name": "linux-arm-gcc",
+      "hidden": true,
+      "inherits": "linux",
+      "cacheVariables": {
+        "TOOLCHAIN": "arm-none-linux-gnueabihf-gcc"
+      }
+    },
+    {
+      "name": "linux-arm-clang",
+      "hidden": true,
+      "inherits": "linux",
+      "cacheVariables": {
+        "TOOLCHAIN": "arm-none-linux-gnueabihf-clang"
+      }
+    }
+  ]
+}

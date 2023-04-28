@@ -1,78 +1,16 @@
 {
-  "version": 3,
+  "version": 6,
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 24,
+    "minor": 25,
     "patch": 2
   },
+  "include": [
+    "cmake/presets-baremetal.json",
+    "cmake/presets-linux.json",
+    "cmake/presets-type.json"
+  ],
   "configurePresets": [
-    {
-      "name": "linux",
-      "hidden": true,
-      "cacheVariables": {
-        "PLATFORM": "linux",
-        "USE_CONAN": "ON"
-      }
-    },
-    {
-      "name": "linux-gcc",
-      "hidden": true,
-      "inherits": "linux"
-    },
-    {
-      "name": "linux-clang",
-      "hidden": true,
-      "inherits": "linux",
-      "cacheVariables": {
-        "TOOLCHAIN": "clang"
-      }
-    },
-    {
-      "name": "linux-arm-gcc",
-      "hidden": true,
-      "inherits": "linux",
-      "cacheVariables": {
-        "TOOLCHAIN": "arm-none-linux-gnueabihf-gcc"
-      }
-    },
-    {
-      "name": "linux-arm-clang",
-      "hidden": true,
-      "inherits": "linux",
-      "cacheVariables": {
-        "TOOLCHAIN": "arm-none-linux-gnueabihf-clang"
-      }
-    },
-    {
-      "name": "baremetal-arm",
-      "hidden": true,
-      "cacheVariables": {
-        "PLATFORM": "baremetal-arm",
-        "USE_CONAN": "ON"
-      }
-    },
-    {
-      "name": "freertos-arm",
-      "hidden": true,
-      "cacheVariables": {
-        "PLATFORM": "freertos-arm",
-        "USE_CONAN": "ON"
-      }
-    },
-    {
-      "name": "debug",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
-    },
-    {
-      "name": "release",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      }
-    },
     {
       "name": "linux-gcc-debug",
       "inherits": [

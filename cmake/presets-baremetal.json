@@ -1,0 +1,26 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 2
+  },
+  "configurePresets": [
+    {
+      "name": "baremetal-arm",
+      "hidden": true,
+      "cacheVariables": {
+        "PLATFORM": "baremetal-arm",
+        "USE_CONAN": "ON"
+      }
+    },
+    {
+      "name": "freertos-arm",
+      "hidden": true,
+      "cacheVariables": {
+        "PLATFORM": "freertos-arm",
+        "USE_CONAN": "ON"
+      }
+    }
+  ]
+}
