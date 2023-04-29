@@ -6,6 +6,7 @@ variables:
   DOCKER_IMAGE_ARM_LINUX_CLANG: embeddedlinux/arm-none-linux-gnueabihf-clang:14-22.04
   DOCKER_IMAGE_ARM_NONE_GCC: embeddedlinux/arm-none-eabi-gcc:11-22.04
   DOCKER_IMAGE_ARM_TESTS: embeddedlinux/arm-tests:11-22.04
+  DOCKER_IMAGE_DOXYGEN: embeddedlinux/doxygen:22.04
 
 stages:
   - build-gcc

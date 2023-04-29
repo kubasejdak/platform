@@ -2,7 +2,7 @@ pages:
   stage: deploy
   only:
     - master
-  image: ${DOCKER_IMAGE_GCC}
+  image: ${DOCKER_IMAGE_DOXYGEN}
   tags:
     - cet_build
   needs: []
