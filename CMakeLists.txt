@@ -3,16 +3,10 @@ cmake_minimum_required(VERSION 3.25)
 include(demo/settings.cmake)
 
 include(cmake/conan.cmake)
-include(cmake/doxygen.cmake)
 include(cmake/platform.cmake)
 include(cmake/sanitizers.cmake)
 
 project(platform VERSION 1.1.2 LANGUAGES ASM C CXX)
-
-if (GENERATE_DOCS)
-    doxygen_addTarget(${CMAKE_CURRENT_SOURCE_DIR}/lib README.md)
-    return()
-endif ()
 
 if (USE_CONAN)
     conan_init_wrapper()
