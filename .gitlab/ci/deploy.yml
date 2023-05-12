@@ -11,4 +11,5 @@ pages:
       - public
   script:
     - tools/doxygen.sh -i lib -i README.md -m README.md
-    - mv docs/html public/docs
+    - doxygen
+    - mkdir public; mv docs/html public/docs
