@@ -57,7 +57,3 @@ if [ -n "${MAINPAGE}" ]; then
 fi
 update_config "GENERATE_LATEX" "NO"
 update_config "DOT_MULTI_TARGETS" "YES"
-
-# TODO: Remmove.
-sed -i '/^#/d' Doxyfile
-sed -i '/^[[:space:]]*$/d' Doxyfile
