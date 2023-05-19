@@ -9,8 +9,10 @@ pages:
   artifacts:
     paths:
       - public
+  before_script:
+    - mkdir public
   script:
     # Generate documentation.
     - tools/doxygen.sh -i lib -i README.md -m README.md
     - doxygen
-    - mkdir public; mv docs/html public/docs
+    - mv docs/html public/docs
